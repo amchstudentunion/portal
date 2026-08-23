@@ -27,25 +27,25 @@
     header { border-bottom: 1px solid var(--border); padding-bottom: 2rem; margin-bottom: 4rem; }
     nav { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; }
     .brand { font-family: var(--font-serif); font-size: 1.75rem; text-decoration: none; color: var(--text); font-weight: 600; letter-spacing: -0.01em; }
-    .nav-links a { margin-left: 1.5rem; text-decoration: none; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; }
+    .nav-links a { margin-left: 1.25rem; text-decoration: none; color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
 
-    .hero { margin-bottom: 6rem; max-width: 900px; }
-    .hero h1 { font-family: var(--font-serif); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
-    .hero p { font-size: 1.15rem; color: var(--muted); font-weight: 300; max-width: 640px; }
+    .hero { margin-bottom: 5rem; max-width: 900px; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(2.75rem, 6vw, 5rem); font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .hero p { font-size: 1.1rem; color: var(--muted); font-weight: 300; max-width: 640px; }
 
-    section { margin-bottom: 6rem; }
+    section { margin-bottom: 5.5rem; }
     .section-header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 2rem; }
-    .section-header h2 { font-family: var(--font-serif); font-size: 2.25rem; font-weight: 400; margin: 0; }
-    .section-header span { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+    .section-header h2 { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 400; margin: 0; }
+    .section-header span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
     .card { border: 1px solid var(--border); padding: 1.5rem; background: var(--surface); }
-    .card h3 { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 0.5rem; font-weight: 400; }
+    .card h3 { font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 0.5rem; font-weight: 400; }
     .card p { color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem; }
     .card a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.85rem; border-bottom: 1px solid var(--text); }
 
-    /* Batch selector cards */
+    /* Batches list */
     .batches-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
     .batch-btn {
       border: 1px solid var(--border);
@@ -61,10 +61,10 @@
     }
     .batch-btn:hover { border-color: var(--text); background: #f4f4f2; }
     .batch-btn .badge { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
-    .batch-btn .title { font-family: var(--font-serif); font-size: 1.6rem; color: var(--text); margin-top: 0.5rem; line-height: 1.1; }
+    .batch-btn .title { font-family: var(--font-serif); font-size: 1.55rem; color: var(--text); margin-top: 0.5rem; line-height: 1.1; }
     .batch-btn.crmi { border: 1.5px solid var(--text); }
 
-    /* Google Map Responsive Wrapper */
+    /* Google Map */
     .google-map-container {
       position: relative;
       width: 100%;
@@ -80,7 +80,7 @@
       filter: grayscale(15%) contrast(1.02);
     }
 
-    /* Batch Dossier Modal Window */
+    /* Modal Backdrop */
     .modal-backdrop {
       display: none;
       position: fixed;
@@ -122,13 +122,13 @@
     .dossier-flag-banner {
       border: 1px solid var(--border);
       background: var(--surface);
-      padding: 2.5rem 2rem;
+      padding: 2.2rem 2rem;
       text-align: center;
       margin: 1.5rem 0 2.5rem 0;
       position: relative;
     }
     .dossier-flag-banner::before {
-      content: "FLAG & INSIGNIA";
+      content: "BATCH STANDARD & FLAG";
       position: absolute;
       top: 0.6rem;
       left: 0.8rem;
@@ -136,9 +136,9 @@
       letter-spacing: 0.08em;
       color: var(--muted);
     }
-    .flag-symbol { font-size: 3rem; margin-bottom: 0.5rem; display: block; }
-    .batch-dossier-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; line-height: 1; margin-bottom: 0.5rem; }
-    .batch-motto { font-family: var(--font-serif); font-style: italic; font-size: 1.35rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .flag-symbol { font-size: 2.8rem; margin-bottom: 0.5rem; display: block; }
+    .batch-dossier-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3.75rem); font-weight: 400; line-height: 1; margin-bottom: 0.5rem; }
+    .batch-motto { font-family: var(--font-serif); font-style: italic; font-size: 1.25rem; color: var(--muted); margin-bottom: 1.5rem; }
     
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
     .gallery-placeholder {
@@ -155,10 +155,6 @@
       color: var(--muted);
     }
 
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left; }
-    th { padding: 0.75rem 0; font-weight: 400; border-bottom: 1px solid var(--text); font-family: var(--font-serif); font-size: 1.1rem; }
-    td { padding: 1rem 0; border-bottom: 1px solid var(--border); }
-
     footer { border-top: 1px solid var(--border); padding-top: 2rem; color: var(--muted); font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
   </style>
 </head>
@@ -169,11 +165,11 @@
       <a href="#" class="brand">STUDENTS' UNION</a>
       <div class="nav-links">
         <a href="#batches">Batches</a>
-        <a href="#map-section">Field Map</a>
-        <a href="#sos">Night SOS</a>
-        <a href="#exchange">Exchange</a>
-        <a href="#clinical-notes">Clinical Guide</a>
-        <a href="#grievance">Drop-Box</a>
+        <a href="#freshers-survival">Freshers' Survival</a>
+        <a href="#city-realities">Campus & Town Reality</a>
+        <a href="#living-guide">Living & Transit</a>
+        <a href="#book-requests">Book Requests</a>
+        <a href="#grievance">Feedback</a>
       </div>
     </nav>
   </header>
@@ -181,8 +177,8 @@
   <main>
     <!-- Hero Manifesto -->
     <section class="hero">
-      <h1>Autonomy, camaraderie, and student welfare.</h1>
-      <p>The collective portal for life within hospital wards and Tiruvannamalai town. Dedicated to orienting freshers and celebrating the heritage of all five MBBS batches.</p>
+      <h1>Camaraderie, discipline, and student life.</h1>
+      <p>The collective guide for navigating medical academics, hostel living, and life across Tiruvannamalai. Maintained independently by the student body.</p>
     </section>
 
     <!-- Batches Section -->
@@ -215,213 +211,233 @@
       </div>
     </section>
 
-    <!-- Google Map Integration Section -->
+    <!-- SECTION: HOW TO SURVIVE FIRST YEAR MBBS -->
+    <section id="freshers-survival">
+      <div class="section-header">
+        <h2>How to Survive First Year</h2>
+        <span>Freshers' Academic & Practical Briefing</span>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Anatomy & Dissection Hall (DH)</h3>
+          <p><strong>Dress Code:</strong> Clean apron, ID card, hair tied back. Mandatory dissection kit with B.P. blade holder (#24), forceps, and gloves.</p>
+          <p style="font-size: 0.85rem; color: #444;">Read Cunningham's Dissection Manual before entering the hall. Respect cadaveric donors at all times.</p>
+        </div>
+        <div class="card">
+          <h3>2. Physiology Practical Decorum</h3>
+          <p><strong>Clinical Focus:</strong> Hematology experiments (RBC/WBC count, ESR, blood grouping) and human system tracings.</p>
+          <p style="font-size: 0.85rem; color: #444;">Keep logbooks and practical observation manuals signed weekly by tutors to avoid end-posting halts.</p>
+        </div>
+        <div class="card">
+          <h3>3. Biochemistry Cycles & Charts</h3>
+          <p><strong>Exam Strategy:</strong> Master metabolism pathways, enzyme kinetics cycles, and clinical case interpretations (LFT, RFT, lipid profiles).</p>
+          <p style="font-size: 0.85rem; color: #444;">Form small study clusters early on for active recall of chemical cycles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: WHAT TO EXPECT FROM COLLEGE & THE CITY -->
+    <section id="city-realities">
+      <div class="section-header">
+        <h2>What to Expect: Campus & Town Realities</h2>
+        <span>Rules, Curfews & Third-Tier City Dynamics</span>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Hostel Rules & Strict Curfew</h3>
+          <p>The administration enforces firm in-timing rules for all campus hostels[cite: 1]:</p>
+          <ul style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
+            <li><strong>Girls' Hostel Curfew:</strong> Strictly 08:00 PM[cite: 1]. Roll call and biometric registry conducted nightly.</li>
+            <li><strong>Boys' Hostel Curfew:</strong> Strictly 09:00 PM[cite: 1]. Gate passes required for leaving town on weekends.</li>
+            <li>No outside night deliveries or unauthorized gate loitering are permitted after closing hours[cite: 1].</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Town Infrastructure & Drawbacks</h3>
+          <p>Tiruvannamalai is a tier-3 temple town with distinct characteristics[cite: 1]:</p>
+          <ul style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
+            <li>No major multiplexes or large commercial malls. Entertainment revolves around campus sports, cafe circles, and hill treks[cite: 1].</li>
+            <li>Local transport winds down post 9:00 PM; public town transit operates largely on daytime frequencies.</li>
+            <li>Heavy town footfalls during full moon (Girivalam) dates—plan personal transit and weekend travel in advance.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Daytime Conveniences</h3>
+          <p>Stationery stores, pharmacy suppliers, tailoring shops for aprons, and local dining hubs exist along Polur Road and Bypass junctions[cite: 1].</p>
+          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;">[Placeholder: Add trusted local print shops and tailoring contacts for lab coats here][cite: 1]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CAMPUS LIVING & AUTHORIZED TRANSIT -->
+    <section id="living-guide">
+      <div class="section-header">
+        <h2>Campus Living & Transit Guide</h2>
+        <span>Daytime Commute & Essentials</span>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Authorized Gate Transit</h3>
+          <p>Standard auto stands operating outside campus gates during active working hours:</p>
+          <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
+            <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border);">
+              <span>Campus Main Gate Stand</span>
+              <a href="tel:+919876543210" style="color: var(--text); font-weight: 500;">Call Stand</a>
+            </li>
+            <li style="display: flex; justify-content: space-between;">
+              <span>Town Central Stand</span>
+              <a href="tel:+919876543212" style="color: var(--text); font-weight: 500;">Call Stand</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Dining & Mess Routine</h3>
+          <p>Campus mess facilities operate on fixed schedules. Plan meal hours in accordance with class and posting intervals:</p>
+          <ul style="font-size: 0.85rem; padding-left: 1.2rem; line-height: 1.8; color: var(--text);">
+            <li>Breakfast: 07:30 AM – 08:30 AM</li>
+            <li>Lunch: 12:45 PM – 01:45 PM</li>
+            <li>Dinner: 07:30 PM – 08:45 PM</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Pharmacy & Medical Supplies</h3>
+          <p>In-house medical college stores and verified daytime distributors for diagnostic gear and prescription items:</p>
+          <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
+            <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border);">
+              <span>Campus Hospital Pharmacy</span>
+              <span style="color: var(--muted);">OPD Ground Floor</span>
+            </li>
+            <li style="display: flex; justify-content: space-between;">
+              <span>Velu Nagar Medicals</span>
+              <span style="color: var(--muted);">Opp. Campus Gate</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Map Section (Arunai Medical College Focused) -->
     <section id="map-section">
       <div class="section-header">
-        <h2>Tiruvannamalai Student Navigator</h2>
-        <span>Google Maps Integration</span>
+        <h2>Campus & Town Navigator</h2>
+        <span>Arunai Medical College & Hospital Base</span>
       </div>
       
       <div class="google-map-container">
-        <!-- Live Google Map Embed Centered on Medical College & Town Area -->
+        <!-- Live Google Map Embed Centered on Arunai Medical College -->
         <iframe 
-          src="https://maps.google.com/maps?q=Government%20Medical%20College%20and%20Hospital%20Thiruvannamalai&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+          src="https://maps.google.com/maps?q=Arunai%20Medical%20College%20and%20Hospital%20Tiruvannamalai&t=&z=14&ie=UTF8&iwloc=&output=embed" 
           allowfullscreen="" 
           loading="lazy" 
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
       </div>
-
-      <!-- Quick Location Links -->
-      <div class="grid" style="margin-top: 2rem;">
-        <div class="card">
-          <h3>Medical Hubs & Campus</h3>
-          <p>GMC & Hospital Master Plan Complex, Arunai Medical College (Velu Nagar), and Collectorate Complex.</p>
-          <a href="https://maps.google.com/?q=Government+Medical+College+and+Hospital+Thiruvannamalai" target="_blank" rel="noopener">Open GMC in Google Maps &rarr;</a>
-        </div>
-        <div class="card">
-          <h3>Food & Cafes</h3>
-          <p>Dharshan Dhaba (Bypass), Toppi Vappa Biryani, and Ocolate Cafe for team dinners and late parcels.</p>
-          <a href="https://maps.google.com/?q=Dharshan+Dhaba+Tiruvannamalai" target="_blank" rel="noopener">Get Directions to Dhaba &rarr;</a>
-        </div>
-        <div class="card">
-          <h3>Sports & Retail</h3>
-          <p>SDAT Stadium / District Sports Complex on Collectorate Road, Yousta (Polur Road) for clothing basics.</p>
-          <a href="https://maps.google.com/?q=SDAT+Stadium+Tiruvannamalai" target="_blank" rel="noopener">View SDAT Stadium &rarr;</a>
-        </div>
-      </div>
     </section>
 
-    <!-- Night Postings SOS -->
-    <section id="sos">
+    <!-- SECTION: JUNIOR BOOK & EQUIPMENT REQUEST PLACE -->
+    <section id="book-requests">
       <div class="section-header">
-        <h2>Night Postings SOS Guide</h2>
-        <span>Emergency & Duty Support</span>
+        <h2>Junior Book & Equipment Exchange</h2>
+        <span>Peer Pass-Down & Resource Portal</span>
       </div>
-      <div class="grid">
-        <div class="card">
-          <h3>Gate Autos (24/7)</h3>
-          <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
-            <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border);">
-              <span>Hospital Gate Auto Stand</span>
-              <a href="tel:+919876543210" style="color: var(--text); font-weight: 500;">Call Direct</a>
-            </li>
-            <li style="display: flex; justify-content: space-between;">
-              <span>Old Bus Stand Night Shift</span>
-              <a href="tel:+919876543212" style="color: var(--text); font-weight: 500;">Call Direct</a>
-            </li>
-          </ul>
-        </div>
 
-        <div class="card">
-          <h3>Late Deliveries & Meals</h3>
-          <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
-            <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border);">
-              <span>Campus Night Tea Stall</span>
-              <span style="color: var(--muted);">Intercom #402</span>
-            </li>
-            <li style="display: flex; justify-content: space-between;">
-              <span>Dharshan Dhaba / Toppi Vappa</span>
-              <span style="color: var(--muted);">Late Parcel Available</span>
-            </li>
-          </ul>
-        </div>
+      <div class="card" style="max-width: 720px; margin-bottom: 2rem;">
+        <h3 style="font-size: 1.25rem;">Request Study Material / Bone Sets</h3>
+        <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem;">
+          To ensure personal safety, juniors must provide their verified name and batch. The Union committee acts as a mediator to hand over requested materials inside campus common spaces[cite: 1].
+        </p>
 
-        <div class="card">
-          <h3>24-Hour Pharmacies</h3>
-          <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
-            <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border);">
-              <span>Govt Hospital In-House Meds</span>
-              <span style="color: var(--muted);">OPD Ground Floor</span>
-            </li>
-            <li style="display: flex; justify-content: space-between;">
-              <span>Arunai Medical College Meds</span>
-              <span style="color: var(--muted);">Velu Nagar Hub</span>
-            </li>
-          </ul>
-        </div>
+        <form id="book-request-form" action="https://formspree.io/f/mjybdjwn" method="POST" style="display: flex; flex-direction: column; gap: 1.1rem;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+              <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Your Full Name *[cite: 1]</label>
+              <input type="text" name="student_name" required placeholder="e.g., A. Sharma" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;" />
+            </div>
+            <div>
+              <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Your Batch Name *[cite: 1]</label>
+              <select name="batch_name" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
+                <option value="Zenarianz (1st Year)">Zenarianz (Freshers)</option>
+                <option value="Stratonz (2nd Year)">Stratonz</option>
+                <option value="Xandarianz (3rd Year)">Xandarianz</option>
+                <option value="Ryzentronz (Final Year)">Ryzentronz</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Item Requested *[cite: 1]</label>
+            <select name="item_category" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
+              <option value="Osteology Bone Set">Full / Partial Bone Set</option>
+              <option value="Anatomy Books (BDC / Vishram Singh)">Anatomy Textbooks (BDC / Vishram Singh)</option>
+              <option value="Physiology (Guyton / GK Pal)">Physiology Textbooks (Guyton / GK Pal)</option>
+              <option value="Biochemistry (Satyanarayana / Vasudevan)">Biochemistry Textbooks (Satyanarayana / Vasudevan)</option>
+              <option value="Diagnostic Gear (Hammer, Stethoscope, Tuning Fork)">Clinical Diagnostic Kit</option>
+              <option value="Other">Other Specific Material</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Specific Edition or Details</label>
+            <textarea name="details" rows="3" placeholder="Specify author edition, preferred condition, or specific bone parts needed..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem; resize: vertical;"></textarea>
+          </div>
+
+          <button type="submit" style="background: var(--text); color: var(--bg); border: none; padding: 0.85rem 2rem; font-family: var(--font-serif); font-size: 1.1rem; cursor: pointer; align-self: flex-start;">
+            Submit Material Request &rarr;
+          </button>
+        </form>
       </div>
     </section>
 
-    <!-- Senior-Junior Book & Equipment Exchange -->
-    <section id="exchange">
+    <!-- Anonymous Feedback & Suggestion Box -->
+    <section id="grievance">
       <div class="section-header">
-        <h2>Senior–Junior Exchange</h2>
-        <span>Peer Classifieds</span>
+        <h2>Anonymous Student Feedback</h2>
+        <span>Direct Redressal Desk</span>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Item Description</th>
-            <th>Category</th>
-            <th>Offered By</th>
-            <th>Price / Terms</th>
-            <th style="text-align: right;">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Full Osteology Bone Set (Original, Grade A)</td>
-            <td style="color: var(--muted);">Anatomy Kit</td>
-            <td>Xandarianz</td>
-            <td>₹4,500 (Fixed)</td>
-            <td style="text-align: right;"><a href="#" style="color: var(--text); text-decoration: underline;">Request Item</a></td>
-          </tr>
-          <tr>
-            <td>B.D. Chaurasia (Vol 1-4, Latest Edition)</td>
-            <td style="color: var(--muted);">Textbook</td>
-            <td>Ryzentronz</td>
-            <td>Free Pass-Down</td>
-            <td style="text-align: right;"><a href="#" style="color: var(--text); text-decoration: underline;">Request Item</a></td>
-          </tr>
-          <tr>
-            <td>Clinical Kit: Knee Hammer, Tuning Fork (128/512Hz)</td>
-            <td style="color: var(--muted);">Diagnostics</td>
-            <td>Trigarianz</td>
-            <td>₹600</td>
-            <td style="text-align: right;"><a href="#" style="color: var(--text); text-decoration: underline;">Request Item</a></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
 
-    <!-- Clinical Posting Survival Notes -->
-    <section id="clinical-notes">
-      <div class="section-header">
-        <h2>Clinical Survival Protocols</h2>
-        <span>Fresher Reference</span>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <h3>1. OPD Postings Decorum</h3>
-          <ul style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
-            <li>Clean, ironed white apron with college ID pinned on the left chest.</li>
-            <li>Mandatory kit: Stethoscope, pen torch, measuring tape, knee hammer, diary.</li>
-            <li>Report to the assigned unit PG by 08:45 AM for ward allocations.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>2. Case Sheet Structure</h3>
-          <ol style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
-            <li><strong>Demographics:</strong> Name, Age, Sex, Occupation, Native place.</li>
-            <li><strong>Chief Complaints:</strong> In chronological order with duration.</li>
-            <li><strong>HOPI:</strong> History of Present Illness with negative history.</li>
-            <li><strong>Systemic Exam:</strong> Inspection &rarr; Palpation &rarr; Percussion &rarr; Auscultation.</li>
-          </ol>
-        </div>
+      <div class="card" style="max-width: 700px;">
+        <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem;">
+          Transmissions through this channel do not log individual identities. Use this desk for feedback regarding academic scheduling, mess maintenance, or general welfare.
+        </p>
+
+        <form id="feedback-form" action="https://formspree.io/f/mjybdjwn" method="POST" style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div>
+            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Topic / Category</label>
+            <select name="category" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
+              <option value="General Feedback">General Suggestion / Feedback</option>
+              <option value="Mess & Canteen">Mess & Dining</option>
+              <option value="Hostel Maintenance">Hostel & Infrastructure</option>
+              <option value="Academics & Clinicals">Academics & Practical Schedules</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Batch Context (Optional)</label>
+            <select name="batch" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
+              <option value="Undisclosed">Prefer not to say</option>
+              <option value="Zenarianz">Zenarianz (Freshers)</option>
+              <option value="Stratonz">Stratonz</option>
+              <option value="Xandarianz">Xandarianz</option>
+              <option value="Ryzentronz">Ryzentronz</option>
+              <option value="Trigarianz">Trigarianz (CRMI)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Your Message</label>
+            <textarea name="message" rows="4" required placeholder="Type facts, location, and practical suggestions..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem; resize: vertical;"></textarea>
+          </div>
+
+          <button id="feedback-submit-btn" type="submit" style="background: var(--text); color: var(--bg); border: none; padding: 0.85rem 2rem; font-family: var(--font-serif); font-size: 1.1rem; cursor: pointer; align-self: flex-start;">
+            Send Feedback &rarr;
+          </button>
+
+          <div id="feedback-status" style="display: none; font-size: 0.9rem; margin-top: 0.5rem;"></div>
+        </form>
       </div>
     </section>
-
-    <!-- ================= ANONYMOUS FEEDBACK & GRIEVANCE ================= -->
-<section id="grievance" style="margin-bottom: 6rem;">
-  <div class="section-header">
-    <h2>Anonymous Feedback & Dispatch</h2>
-    <span>Direct Union Line</span>
-  </div>
-
-  <div class="card" style="max-width: 700px;">
-    <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem;">
-      Your feedback is sent directly to the Union committee. No email address, name, or device IP is logged.
-    </p>
-
-    <!-- Paste your Formspree URL in the action attribute below -->
-    <form id="feedback-form" action="https://formspree.io/f/mjybdjwn" method="POST" style="display: flex; flex-direction: column; gap: 1.25rem;">
-      <div>
-        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Topic / Category</label>
-        <select name="category" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
-          <option value="General Feedback">General Suggestion / Feedback</option>
-          <option value="Mess & Canteen">Mess & Canteen</option>
-          <option value="Hostel Maintenance">Hostel & Water Supply</option>
-          <option value="Academics & Clinicals">Academics & Clinical Postings</option>
-          <option value="Website Improvement">Website Feature Request</option>
-        </select>
-      </div>
-
-      <div>
-        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Batch (Optional)</label>
-        <select name="batch" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
-          <option value="Undisclosed">Prefer not to say</option>
-          <option value="Zenarianz">Zenarianz (Freshers)</option>
-          <option value="Stratonz">Stratonz</option>
-          <option value="Xandarianz">Xandarianz</option>
-          <option value="Ryzentronz">Ryzentronz</option>
-          <option value="Trigarianz">Trigarianz (CRMI)</option>
-        </select>
-      </div>
-
-      <div>
-        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Your Message</label>
-        <textarea name="message" rows="5" required placeholder="Type your suggestion or feedback here..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem; resize: vertical;"></textarea>
-      </div>
-
-      <button id="feedback-submit-btn" type="submit" style="background: var(--text); color: var(--bg); border: none; padding: 0.85rem 2rem; font-family: var(--font-serif); font-size: 1.1rem; cursor: pointer; align-self: flex-start;">
-        Send Feedback &rarr;
-      </button>
-
-      <div id="feedback-status" style="display: none; font-size: 0.9rem; margin-top: 0.5rem;"></div>
-    </form>
-  </div>
-</section>
   </main>
 
   <footer>
@@ -429,7 +445,7 @@
     <p>Tiruvannamalai, Tamil Nadu</p>
   </footer>
 
-  <!-- Dedicated Batch Dossier Modal -->
+  <!-- Dedicated Batch Dossier Modal Window -->
   <div id="batchModal" class="modal-backdrop" onclick="closeBatchModal(event)">
     <div class="modal-container" onclick="event.stopPropagation()">
       <button class="close-btn" onclick="closeBatchModalDirect()">Close &times;</button>
@@ -438,6 +454,7 @@
   </div>
 
   <script>
+    // ================= BATCH DATA WITH SPACE REPRESENTATIVES ONLY =================
     const batchData = {
       trigarianz: {
         name: "TRIGARIANZ",
@@ -446,21 +463,18 @@
         flagSymbol: "⚔️ ⚕️",
         flagDesign: "The Obsidian Standard // Gold Caduceus on Jet Field",
         motto: "“Through the crucible of duty, we master the healing arts.”",
-        manifesto: "The seniormost vanguard of the student body. Currently managing Casualty, Surgery, Medicine, and Rural rotations across the Master Plan Complex. Guardians of traditions, mentors of clinical instincts.",
-        council: [
-          { role: "Batch Representative (Men)", name: "Dr. [Name Placeholder]" },
-          { role: "Batch Representative (Women)", name: "Dr. [Name Placeholder]" },
-          { role: "Intern Academic Secretary", name: "Dr. [Name Placeholder]" },
-          { role: "Clinical Duty Liaison", name: "Dr. [Name Placeholder]" }
+        manifesto: "The seniormost batch across hospital casualty and clinical wards. Stewards of clinical traditions and senior guidance.",
+        reps: [
+          { role: "Space Representative (Men)", name: "Dr. [Representative Placeholder]" },
+          { role: "Space Representative (Women)", name: "Dr. [Representative Placeholder]" }
         ],
         milestones: [
-          "100% Clinical Ward Rotations across GMC Tiruvannamalai",
-          "Inter-College Symposium Organizers & Clinical Champions",
-          "Founding stewards of the Student Welfare Forum"
+          "100% Ward Rotations completed across clinical specialties",
+          "Inter-College Clinical Symposium Leads"
         ],
         gallery: [
-          { url: "assets/trigarianz/photo-1.jpg", caption: "Casualty Night Duty Shift", alt: "Trigarianz casualty posting team" },
-          { url: "assets/trigarianz/photo-2.jpg", caption: "Annual Inter-Batch Cricket Finalists", alt: "Cricket tournament champions" }
+          { url: "assets/trigarianz/photo-1.jpg", caption: "Casualty Duty Ward Posting", alt: "Casualty posting" },
+          { url: "assets/trigarianz/photo-2.jpg", caption: "Batch Milestone Gathering", alt: "Batch assembly" }
         ]
       },
       ryzentronz: {
@@ -470,20 +484,17 @@
         flagSymbol: "⚡ 🦅",
         flagDesign: "The Crimson Crest // Ascending Phoenix & Stethoscope",
         motto: "“Unyielding precision, unshakeable solidarity.”",
-        manifesto: "Mastering Medicine, Surgery, OBG, and Paediatrics. The senior council driving academic peer-teaching and steering college delegations across national medical conferences.",
-        council: [
-          { role: "General Secretary", name: "[Name Placeholder]" },
-          { role: "Academic Coordinator", name: "[Name Placeholder]" },
-          { role: "Cultural & Sports Secretary", name: "[Name Placeholder]" }
+        manifesto: "Navigating final-year clinical cases in Medicine, Surgery, OBG, and Paediatrics while mentoring junior batches.",
+        reps: [
+          { role: "Space Representative (Men)", name: "[Representative Placeholder]" },
+          { role: "Space Representative (Women)", name: "[Representative Placeholder]" }
         ],
         milestones: [
-          "State-level Quiz Finalists (TN-MGRMU)",
-          "Lead Coordinators for the Annual Blood Donation Drive",
-          "Pioneers of the Centralized Logbook Assistance Initiative"
+          "State-level Medical Quiz Finalists",
+          "Clinical Skills Mentorship Leads"
         ],
         gallery: [
-          { url: "assets/ryzentronz/photo-1.jpg", caption: "Ward Postings Case Rounds", alt: "Ward rounds" },
-          { url: "assets/ryzentronz/photo-2.jpg", caption: "National Med-Conference Delegation", alt: "Conference delegates" }
+          { url: "assets/ryzentronz/photo-1.jpg", caption: "Ward Case Discussion", alt: "Ward rounds" }
         ]
       },
       xandarianz: {
@@ -493,17 +504,17 @@
         flagSymbol: "🛡️ ⚔️",
         flagDesign: "The Cobalt Seal // Shield of Diagnostics & Scalpel",
         motto: "“From pathology to therapeutics, our insight sharpens.”",
-        manifesto: "Deep in the trenches of Ophthalmology, ENT, and Community Medicine. Anchoring the core of inter-batch sports, literary societies, and campus initiatives.",
-        council: [
-          { role: "Batch Representative", name: "[Name Placeholder]" },
-          { role: "Sports Captain", name: "[Name Placeholder]" }
+        manifesto: "Active across Ophthalmology, ENT, and Community Medicine field clinics.",
+        reps: [
+          { role: "Space Representative (Men)", name: "[Representative Placeholder]" },
+          { role: "Space Representative (Women)", name: "[Representative Placeholder]" }
         ],
         milestones: [
-          "Field Health Survey Coordinators in Chengam block",
-          "Winners of Inter-batch Football & Badminton League"
+          "Community Medicine Health Camp Coordinators",
+          "Inter-Batch Sports Champions"
         ],
         gallery: [
-          { url: "assets/xandarianz/photo-1.jpg", caption: "Community Medicine Village Survey", alt: "Field survey" }
+          { url: "assets/xandarianz/photo-1.jpg", caption: "Community Medicine Rural Survey", alt: "Field visit" }
         ]
       },
       stratonz: {
@@ -513,37 +524,37 @@
         flagSymbol: "🏹 🏛️",
         flagDesign: "The Bronze Banner // Pillar of Knowledge & Arrow",
         motto: "“Decoding diseases, defending human vitality.”",
-        manifesto: "Navigating Pathology, Microbiology, and Pharmacology while bridging the transition from basic preclinical sciences to hospital bedside clinics.",
-        council: [
-          { role: "Batch Lead", name: "[Name Placeholder]" },
-          { role: "Lab & Library Liaison", name: "[Name Placeholder]" }
+        manifesto: "Bridging preclinical theory and paraclinical lab investigations in Pathology, Pharmacology, and Microbiology.",
+        reps: [
+          { role: "Space Representative (Men)", name: "[Representative Placeholder]" },
+          { role: "Space Representative (Women)", name: "[Representative Placeholder]" }
         ],
         milestones: [
-          "Founding members of the Preclinical Journal Club",
-          "Hospital Orientation Leads for Zenarianz"
+          "Preclinical Journal Review Stewards",
+          "Hospital Orientation Leads for Freshers"
         ],
         gallery: [
-          { url: "assets/stratonz/photo-1.jpg", caption: "Histopathology Practical Sessions", alt: "Microbiology lab" }
+          { url: "assets/stratonz/photo-1.jpg", caption: "Paraclinical Lab Sessions", alt: "Lab session" }
         ]
       },
       zenarianz: {
         name: "ZENARIANZ",
-        yearBadge: "First Professional MBBS — Welcoming Freshers",
+        yearBadge: "First Professional MBBS — Freshers",
         flagImg: "",
         flagSymbol: "🌱 🌟",
         flagDesign: "The Emerald Pennant // The Dawn Star & Lotus",
         motto: "“The journey begins with curiosity, courage, and compassion.”",
-        manifesto: "The newest members of the medical fraternity in Tiruvannamalai. Beginning the rigorous passage through Anatomy dissection halls, Physiology practicals, and Biochemistry cycles.",
-        council: [
-          { role: "Fresher Class Representative (Men)", name: "[TBD / Election Pending]" },
-          { role: "Fresher Class Representative (Women)", name: "[TBD / Election Pending]" }
+        manifesto: "The incoming first-year class embarking on Anatomy, Physiology, and Biochemistry.",
+        reps: [
+          { role: "Space Representative (Men)", name: "[Pending Selection]" },
+          { role: "Space Representative (Women)", name: "[Pending Selection]" }
         ],
         milestones: [
-          "Induction and White Coat Ceremony Milestone",
-          "Inaugural Girivalam Batch Walkway Assembly"
+          "White Coat Ceremony Induction",
+          "Anatomy Dissection Orientation"
         ],
         gallery: [
-          { url: "assets/zenarianz/photo-1.jpg", caption: "White Coat Ceremony", alt: "White coat ceremony" }
+          { url: "assets/zenarianz/photo-1.jpg", caption: "First-Year Induction Ceremony", alt: "Induction" }
         ]
       }
     };
@@ -566,38 +577,38 @@
           <span style="font-size: 0.8rem; color: var(--muted);">Official Batch Standard & Insignia</span>
         </div>
 
-        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.45rem; font-weight: 400; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
           Batch Manifesto
         </h3>
         <p style="font-size: 0.95rem; color: #333; margin-bottom: 2rem; line-height: 1.7;">
           ${data.manifesto}
         </p>
 
-        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
-          Batch Council & Representatives
+        <h3 style="font-family: var(--font-serif); font-size: 1.45rem; font-weight: 400; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
+          Space Representatives
         </h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2.5rem;">
-          ${data.council.map(c => `
+          ${data.reps.map(r => `
             <div style="border: 1px solid var(--border); padding: 1rem; background: var(--surface);">
               <span style="display: block; font-size: 0.72rem; text-transform: uppercase; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 0.25rem;">
-                ${c.role}
+                ${r.role}
               </span>
               <strong style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text);">
-                ${c.name}
+                ${r.name}
               </strong>
             </div>
           `).join('')}
         </div>
 
-        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.45rem; font-weight: 400; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
           Batch Milestones
         </h3>
         <ul style="font-size: 0.9rem; padding-left: 1.2rem; line-height: 1.8; margin-bottom: 2.5rem;">
           ${data.milestones.map(m => `<li>${m}</li>`).join('')}
         </ul>
 
-        <h3 style="font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
-          Batch Gallery & Photographic Archive
+        <h3 style="font-family: var(--font-serif); font-size: 1.45rem; font-weight: 400; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
+          Photographic Archive
         </h3>
         <div class="gallery-grid">
           ${data.gallery.map(img => `
@@ -636,47 +647,47 @@
       if (e.key === 'Escape') closeBatchModalDirect();
     });
   </script>
+
+  <!-- Asynchronous Form Submissions Handler -->
   <script>
-  const feedbackForm = document.getElementById("feedback-form");
-  const feedbackStatus = document.getElementById("feedback-status");
-  const submitBtn = document.getElementById("feedback-submit-btn");
+    const feedbackForm = document.getElementById("feedback-form");
+    const feedbackStatus = document.getElementById("feedback-status");
+    const submitBtn = document.getElementById("feedback-submit-btn");
 
-  if (feedbackForm) {
-    feedbackForm.addEventListener("submit", async function(event) {
-      event.preventDefault();
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending...";
-      feedbackStatus.style.display = "none";
+    if (feedbackForm) {
+      feedbackForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Transmitting...";
+        feedbackStatus.style.display = "none";
 
-      const data = new FormData(event.target);
+        const data = new FormData(event.target);
 
-      try {
-        const response = await fetch(event.target.action, {
-          method: feedbackForm.method,
-          body: data,
-          headers: {
-            'Accept': 'application/json'
+        try {
+          const response = await fetch(event.target.action, {
+            method: feedbackForm.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            feedbackStatus.style.display = "block";
+            feedbackStatus.style.color = "#15803d";
+            feedbackStatus.textContent = "✓ Thank you. Your dispatch has been transmitted.";
+            feedbackForm.reset();
+          } else {
+            throw new Error("Transmission failed");
           }
-        });
-
-        if (response.ok) {
+        } catch (error) {
           feedbackStatus.style.display = "block";
-          feedbackStatus.style.color = "#15803d";
-          feedbackStatus.textContent = "✓ Thank you. Your feedback has been transmitted anonymously.";
-          feedbackForm.reset();
-        } else {
-          throw new Error("Form submission error");
+          feedbackStatus.style.color = "#b91c1c";
+          feedbackStatus.textContent = "Unable to transmit. Please try again later.";
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Send Feedback →";
         }
-      } catch (error) {
-        feedbackStatus.style.display = "block";
-        feedbackStatus.style.color = "#b91c1c";
-        feedbackStatus.textContent = "Unable to send. Please try again later.";
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Send Feedback →";
-      }
-    });
-  }
-</script>
+      });
+    }
+  </script>
 </body>
 </html>
