@@ -372,48 +372,56 @@
       </div>
     </section>
 
-    <!-- Anonymous Grievance Drop-Box -->
-    <section id="grievance">
-      <div class="section-header">
-        <h2>Anonymous Union Drop-Box</h2>
-        <span>Zero-Trace Redressal</span>
+    <!-- ================= ANONYMOUS FEEDBACK & GRIEVANCE ================= -->
+<section id="grievance" style="margin-bottom: 6rem;">
+  <div class="section-header">
+    <h2>Anonymous Feedback & Dispatch</h2>
+    <span>Direct Union Line</span>
+  </div>
+
+  <div class="card" style="max-width: 700px;">
+    <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem;">
+      Your feedback is sent directly to the Union committee. No email address, name, or device IP is logged.
+    </p>
+
+    <!-- Paste your Formspree URL in the action attribute below -->
+    <form id="feedback-form" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" style="display: flex; flex-direction: column; gap: 1.25rem;">
+      <div>
+        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Topic / Category</label>
+        <select name="category" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
+          <option value="General Feedback">General Suggestion / Feedback</option>
+          <option value="Mess & Canteen">Mess & Canteen</option>
+          <option value="Hostel Maintenance">Hostel & Water Supply</option>
+          <option value="Academics & Clinicals">Academics & Clinical Postings</option>
+          <option value="Website Improvement">Website Feature Request</option>
+        </select>
       </div>
-      <div class="card" style="max-width: 700px;">
-        <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem;">
-          Submissions are fully anonymous and contain zero user tracking. Use this form for mess complaints, hostel repairs, library issues, or academic concerns.
-        </p>
-        <form style="display: flex; flex-direction: column; gap: 1.25rem;">
-          <div>
-            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Category</label>
-            <select required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
-              <option value="mess">Mess & Dining Quality</option>
-              <option value="hostel">Hostel Infrastructure / Water / Electrical</option>
-              <option value="academic">Academic & Posting Schedules</option>
-              <option value="library">Library Facilities</option>
-              <option value="welfare">General Student Welfare</option>
-            </select>
-          </div>
-          <div>
-            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Batch Context</label>
-            <select style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
-              <option value="undisclosed">Prefer not to say</option>
-              <option value="zenarianz">Zenarianz (Freshers)</option>
-              <option value="stratonz">Stratonz</option>
-              <option value="xandarianz">Xandarianz</option>
-              <option value="ryzentronz">Ryzentronz</option>
-              <option value="trigarianz">Trigarianz (CRMI)</option>
-            </select>
-          </div>
-          <div>
-            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Concern / Resolution Needed</label>
-            <textarea rows="4" required placeholder="State facts, location, and specific resolution requested..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem; resize: vertical;"></textarea>
-          </div>
-          <button type="submit" style="background: var(--text); color: var(--bg); border: none; padding: 0.85rem 2rem; font-family: var(--font-serif); font-size: 1.1rem; cursor: pointer; align-self: flex-start;">
-            Submit Anonymous Dispatch &rarr;
-          </button>
-        </form>
+
+      <div>
+        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Batch (Optional)</label>
+        <select name="batch" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
+          <option value="Undisclosed">Prefer not to say</option>
+          <option value="Zenarianz">Zenarianz (Freshers)</option>
+          <option value="Stratonz">Stratonz</option>
+          <option value="Xandarianz">Xandarianz</option>
+          <option value="Ryzentronz">Ryzentronz</option>
+          <option value="Trigarianz">Trigarianz (CRMI)</option>
+        </select>
       </div>
-    </section>
+
+      <div>
+        <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Your Message</label>
+        <textarea name="message" rows="5" required placeholder="Type your suggestion or feedback here..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem; resize: vertical;"></textarea>
+      </div>
+
+      <button id="feedback-submit-btn" type="submit" style="background: var(--text); color: var(--bg); border: none; padding: 0.85rem 2rem; font-family: var(--font-serif); font-size: 1.1rem; cursor: pointer; align-self: flex-start;">
+        Send Feedback &rarr;
+      </button>
+
+      <div id="feedback-status" style="display: none; font-size: 0.9rem; margin-top: 0.5rem;"></div>
+    </form>
+  </div>
+</section>
   </main>
 
   <footer>
@@ -628,5 +636,47 @@
       if (e.key === 'Escape') closeBatchModalDirect();
     });
   </script>
+  <script>
+  const feedbackForm = document.getElementById("feedback-form");
+  const feedbackStatus = document.getElementById("feedback-status");
+  const submitBtn = document.getElementById("feedback-submit-btn");
+
+  if (feedbackForm) {
+    feedbackForm.addEventListener("submit", async function(event) {
+      event.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+      feedbackStatus.style.display = "none";
+
+      const data = new FormData(event.target);
+
+      try {
+        const response = await fetch(event.target.action, {
+          method: feedbackForm.method,
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          feedbackStatus.style.display = "block";
+          feedbackStatus.style.color = "#15803d";
+          feedbackStatus.textContent = "✓ Thank you. Your feedback has been transmitted anonymously.";
+          feedbackForm.reset();
+        } else {
+          throw new Error("Form submission error");
+        }
+      } catch (error) {
+        feedbackStatus.style.display = "block";
+        feedbackStatus.style.color = "#b91c1c";
+        feedbackStatus.textContent = "Unable to send. Please try again later.";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Feedback →";
+      }
+    });
+  }
+</script>
 </body>
 </html>
