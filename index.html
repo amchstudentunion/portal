@@ -11,24 +11,93 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
+    /* Theme Definitions */
+    :root, [data-theme="paper"] {
       --bg: #FBFBFA;
       --surface: #FFFFFF;
       --text: #181818;
       --muted: #737373;
       --border: #E5E5E3;
+      --accent: #2E2E2E;
+      --card-bg: #FFFFFF;
+      --input-bg: #FBFBFA;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    [data-theme="white"] {
+      --bg: #FFFFFF;
+      --surface: #F8F9FA;
+      --text: #111827;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+      --accent: #1F2937;
+      --card-bg: #FFFFFF;
+      --input-bg: #F9FAFB;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --surface: #1E1E1E;
+      --text: #EDEDED;
+      --muted: #9E9E9E;
+      --border: #2C2C2C;
+      --accent: #E5E5E5;
+      --card-bg: #181818;
+      --input-bg: #141414;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; padding: 2rem 5vw; }
     
+    /* Top Live Countdown Ribbon */
+    .ticker-bar {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+    .ticker-item { display: flex; align-items: center; gap: 0.5rem; }
+    .ticker-label { text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); }
+    .ticker-value { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--text); }
+
     header { border-bottom: 1px solid var(--border); padding-bottom: 2rem; margin-bottom: 4rem; }
-    nav { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; }
+    nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; }
     .brand { font-family: var(--font-serif); font-size: 1.75rem; text-decoration: none; color: var(--text); font-weight: 600; letter-spacing: -0.01em; }
-    .nav-links a { margin-left: 1.25rem; text-decoration: none; color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; }
+    
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-right: 1.25rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
+
+    /* Theme Segmented Switcher */
+    .theme-switch {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 2px;
+      gap: 2px;
+    }
+    .theme-btn {
+      background: none;
+      border: none;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .theme-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      font-weight: 600;
+    }
 
     .hero { margin-bottom: 5rem; max-width: 900px; }
     .hero h1 { font-family: var(--font-serif); font-size: clamp(2.75rem, 6vw, 5rem); font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
@@ -40,7 +109,7 @@
     .section-header span { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .card { border: 1px solid var(--border); padding: 1.5rem; background: var(--surface); }
+    .card { border: 1px solid var(--border); padding: 1.5rem; background: var(--card-bg); }
     .card h3 { font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 0.5rem; font-weight: 400; }
     .card p { color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem; }
     .card a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.85rem; border-bottom: 1px solid var(--text); }
@@ -53,13 +122,12 @@
       background: var(--surface);
       text-align: left;
       cursor: pointer;
-      transition: all 0.2s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 130px;
     }
-    .batch-btn:hover { border-color: var(--text); background: #f4f4f2; }
+    .batch-btn:hover { border-color: var(--text); }
     .batch-btn .badge { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
     .batch-btn .title { font-family: var(--font-serif); font-size: 1.55rem; color: var(--text); margin-top: 0.5rem; line-height: 1.1; }
     .batch-btn.crmi { border: 1.5px solid var(--text); }
@@ -77,7 +145,7 @@
       width: 100%;
       height: 100%;
       border: 0;
-      filter: grayscale(15%) contrast(1.02);
+      filter: grayscale(20%) contrast(1.02);
     }
 
     /* Modal Backdrop */
@@ -85,7 +153,7 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(24, 24, 24, 0.6);
+      background: rgba(18, 18, 18, 0.75);
       backdrop-filter: blur(4px);
       z-index: 9999;
       overflow-y: auto;
@@ -143,7 +211,7 @@
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
     .gallery-placeholder {
       aspect-ratio: 4/3;
-      background: #EEE;
+      background: var(--surface);
       border: 1px dashed var(--border);
       display: flex;
       flex-direction: column;
@@ -155,21 +223,46 @@
       color: var(--muted);
     }
 
+    input, select, textarea {
+      color: var(--text);
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+    }
+
     footer { border-top: 1px solid var(--border); padding-top: 2rem; color: var(--muted); font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
   </style>
 </head>
 <body>
 
+  <!-- Live Countdown Ticker -->
+  <div class="ticker-bar">
+    <div class="ticker-item">
+      <span class="ticker-label">Next Girivalam (Pournami):</span>
+      <span id="girivalam-countdown" class="ticker-value">Calculating...</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-label">MGRMU University Exams:</span>
+      <span id="exam-countdown" class="ticker-value">Calculating...</span>
+    </div>
+  </div>
+
   <header>
     <nav>
       <a href="#" class="brand">STUDENTS' UNION</a>
-      <div class="nav-links">
-        <a href="#batches">Batches</a>
-        <a href="#freshers-survival">Freshers' Survival</a>
-        <a href="#city-realities">Campus & Town Reality</a>
-        <a href="#living-guide">Living & Transit</a>
-        <a href="#book-requests">Book Requests</a>
-        <a href="#grievance">Feedback</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#batches">Batches</a>
+          <a href="#freshers-survival">Freshers</a>
+          <a href="#city-realities">Campus Rules</a>
+          <a href="#book-requests">Exchange</a>
+          <a href="#grievance">Feedback</a>
+        </div>
+        <!-- 3-Way Mode Switcher -->
+        <div class="theme-switch">
+          <button class="theme-btn" onclick="setTheme('paper')" id="btn-paper">Paper</button>
+          <button class="theme-btn" onclick="setTheme('white')" id="btn-white">White</button>
+          <button class="theme-btn" onclick="setTheme('dark')" id="btn-dark">Dark</button>
+        </div>
       </div>
     </nav>
   </header>
@@ -221,17 +314,17 @@
         <div class="card">
           <h3>1. Anatomy & Dissection Hall (DH)</h3>
           <p><strong>Dress Code:</strong> Clean apron, ID card, hair tied back. Mandatory dissection kit with B.P. blade holder (#24), forceps, and gloves.</p>
-          <p style="font-size: 0.85rem; color: #444;">Read Cunningham's Dissection Manual before entering the hall. Respect cadaveric donors at all times.</p>
+          <p style="font-size: 0.85rem; color: var(--muted);">Read Cunningham's Dissection Manual before entering the hall. Respect cadaveric donors at all times.</p>
         </div>
         <div class="card">
           <h3>2. Physiology Practical Decorum</h3>
           <p><strong>Clinical Focus:</strong> Hematology experiments (RBC/WBC count, ESR, blood grouping) and human system tracings.</p>
-          <p style="font-size: 0.85rem; color: #444;">Keep logbooks and practical observation manuals signed weekly by tutors to avoid end-posting halts.</p>
+          <p style="font-size: 0.85rem; color: var(--muted);">Keep logbooks and practical observation manuals signed weekly by tutors to avoid end-posting halts.</p>
         </div>
         <div class="card">
           <h3>3. Biochemistry Cycles & Charts</h3>
           <p><strong>Exam Strategy:</strong> Master metabolism pathways, enzyme kinetics cycles, and clinical case interpretations (LFT, RFT, lipid profiles).</p>
-          <p style="font-size: 0.85rem; color: #444;">Form small study clusters early on for active recall of chemical cycles.</p>
+          <p style="font-size: 0.85rem; color: var(--muted);">Form small study clusters early on for active recall of chemical cycles.</p>
         </div>
       </div>
     </section>
@@ -247,24 +340,24 @@
           <h3>Hostel Rules & Strict Curfew</h3>
           <p>The administration enforces firm in-timing rules for all campus hostels[cite: 1]:</p>
           <ul style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
-            <li><strong>Girls' Hostel Curfew:</strong> Strictly 08:00 PM[cite: 1]. Roll call and biometric registry conducted nightly.</li>
+            <li><strong>Girls' Hostel Curfew:</strong> Strictly 08:00 PM[cite: 1]. Roll call and attendance conducted nightly.</li>
             <li><strong>Boys' Hostel Curfew:</strong> Strictly 09:00 PM[cite: 1]. Gate passes required for leaving town on weekends.</li>
-            <li>No outside night deliveries or unauthorized gate loitering are permitted after closing hours[cite: 1].</li>
+            <li>No outside night food deliveries or unauthorized gate loitering are permitted after closing hours[cite: 1].</li>
           </ul>
         </div>
         <div class="card">
           <h3>Town Infrastructure & Drawbacks</h3>
           <p>Tiruvannamalai is a tier-3 temple town with distinct characteristics[cite: 1]:</p>
           <ul style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
-            <li>No major multiplexes or large commercial malls. Entertainment revolves around campus sports, cafe circles, and hill treks[cite: 1].</li>
-            <li>Local transport winds down post 9:00 PM; public town transit operates largely on daytime frequencies.</li>
-            <li>Heavy town footfalls during full moon (Girivalam) dates—plan personal transit and weekend travel in advance.</li>
+            <li>No major multiplexes or commercial shopping malls. Entertainment centers on sports, cafe circles, and hill treks[cite: 1].</li>
+            <li>Local transport winds down post 9:00 PM; public transit operates largely on daytime frequencies.</li>
+            <li>Heavy town footfalls during full moon (Girivalam) dates—plan transit in advance.</li>
           </ul>
         </div>
         <div class="card">
           <h3>Daytime Conveniences</h3>
           <p>Stationery stores, pharmacy suppliers, tailoring shops for aprons, and local dining hubs exist along Polur Road and Bypass junctions[cite: 1].</p>
-          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;">[Placeholder: Add trusted local print shops and tailoring contacts for lab coats here][cite: 1]</p>
+          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;">[Placeholder: Add verified tailor contacts for lab coat alterations here][cite: 1]</p>
         </div>
       </div>
     </section>
@@ -353,11 +446,11 @@
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
             <div>
               <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Your Full Name *[cite: 1]</label>
-              <input type="text" name="student_name" required placeholder="e.g., A. Sharma" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;" />
+              <input type="text" name="student_name" required placeholder="e.g., A. Sharma" style="width: 100%; padding: 0.75rem; font-family: var(--font-sans); font-size: 0.9rem;" />
             </div>
             <div>
               <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Your Batch Name *[cite: 1]</label>
-              <select name="batch_name" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
+              <select name="batch_name" required style="width: 100%; padding: 0.75rem; font-family: var(--font-sans); font-size: 0.9rem;">
                 <option value="Zenarianz (1st Year)">Zenarianz (Freshers)</option>
                 <option value="Stratonz (2nd Year)">Stratonz</option>
                 <option value="Xandarianz (3rd Year)">Xandarianz</option>
@@ -368,7 +461,7 @@
 
           <div>
             <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Item Requested *[cite: 1]</label>
-            <select name="item_category" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
+            <select name="item_category" required style="width: 100%; padding: 0.75rem; font-family: var(--font-sans); font-size: 0.9rem;">
               <option value="Osteology Bone Set">Full / Partial Bone Set</option>
               <option value="Anatomy Books (BDC / Vishram Singh)">Anatomy Textbooks (BDC / Vishram Singh)</option>
               <option value="Physiology (Guyton / GK Pal)">Physiology Textbooks (Guyton / GK Pal)</option>
@@ -380,7 +473,7 @@
 
           <div>
             <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Specific Edition or Details</label>
-            <textarea name="details" rows="3" placeholder="Specify author edition, preferred condition, or specific bone parts needed..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem; resize: vertical;"></textarea>
+            <textarea name="details" rows="3" placeholder="Specify author edition, preferred condition, or specific bone parts needed..." style="width: 100%; padding: 0.75rem; font-family: var(--font-sans); font-size: 0.9rem; resize: vertical;"></textarea>
           </div>
 
           <button type="submit" style="background: var(--text); color: var(--bg); border: none; padding: 0.85rem 2rem; font-family: var(--font-serif); font-size: 1.1rem; cursor: pointer; align-self: flex-start;">
@@ -405,7 +498,7 @@
         <form id="feedback-form" action="https://formspree.io/f/mjybdjwn" method="POST" style="display: flex; flex-direction: column; gap: 1.25rem;">
           <div>
             <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Topic / Category</label>
-            <select name="category" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
+            <select name="category" required style="width: 100%; padding: 0.75rem; font-family: var(--font-sans); font-size: 0.9rem;">
               <option value="General Feedback">General Suggestion / Feedback</option>
               <option value="Mess & Canteen">Mess & Dining</option>
               <option value="Hostel Maintenance">Hostel & Infrastructure</option>
@@ -415,7 +508,7 @@
 
           <div>
             <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Batch Context (Optional)</label>
-            <select name="batch" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem;">
+            <select name="batch" style="width: 100%; padding: 0.75rem; font-family: var(--font-sans); font-size: 0.9rem;">
               <option value="Undisclosed">Prefer not to say</option>
               <option value="Zenarianz">Zenarianz (Freshers)</option>
               <option value="Stratonz">Stratonz</option>
@@ -427,7 +520,7 @@
 
           <div>
             <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Your Message</label>
-            <textarea name="message" rows="4" required placeholder="Type facts, location, and practical suggestions..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); background: var(--bg); font-family: var(--font-sans); font-size: 0.9rem; resize: vertical;"></textarea>
+            <textarea name="message" rows="4" required placeholder="Type facts, location, and practical suggestions..." style="width: 100%; padding: 0.75rem; font-family: var(--font-sans); font-size: 0.9rem; resize: vertical;"></textarea>
           </div>
 
           <button id="feedback-submit-btn" type="submit" style="background: var(--text); color: var(--bg); border: none; padding: 0.85rem 2rem; font-family: var(--font-serif); font-size: 1.1rem; cursor: pointer; align-self: flex-start;">
@@ -453,8 +546,54 @@
     </div>
   </div>
 
+  <!-- THEME SWITCHER & COUNTDOWN SCRIPT -->
   <script>
-    // ================= BATCH DATA WITH SPACE REPRESENTATIVES ONLY =================
+    // 1. Theme Switcher Logic
+    function setTheme(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      localStorage.setItem('union_theme', themeName);
+      
+      document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(`btn-${themeName}`);
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    // Initialize Theme from Local Storage (Default to 'paper')
+    const savedTheme = localStorage.getItem('union_theme') || 'paper';
+    setTheme(savedTheme);
+
+    // 2. Countdown Tickers Logic
+    function updateCountdowns() {
+      const now = new Date().getTime();
+
+      // Configure targets (Update dates as university notifications publish)
+      // Set to upcoming Pournami / Exam benchmarks
+      const nextGirivalam = new Date("September 26, 2026 18:00:00").getTime();
+      const nextExams = new Date("December 1, 2026 09:30:00").getTime();
+
+      function formatTimeRemaining(targetTime, elementId, fallbackText) {
+        const diff = targetTime - now;
+        if (diff <= 0) {
+          document.getElementById(elementId).innerText = fallbackText;
+          return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        
+        document.getElementById(elementId).innerText = `${days}d ${hours}h ${minutes}m`;
+      }
+
+      formatTimeRemaining(nextGirivalam, 'girivalam-countdown', 'In Progress / Today');
+      formatTimeRemaining(nextExams, 'exam-countdown', 'Session Active');
+    }
+
+    updateCountdowns();
+    setInterval(updateCountdowns, 60000); // Refresh countdown every minute
+  </script>
+
+  <!-- BATCH MODAL DATA SCRIPT -->
+  <script>
     const batchData = {
       trigarianz: {
         name: "TRIGARIANZ",
@@ -580,7 +719,7 @@
         <h3 style="font-family: var(--font-serif); font-size: 1.45rem; font-weight: 400; margin-bottom: 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem;">
           Batch Manifesto
         </h3>
-        <p style="font-size: 0.95rem; color: #333; margin-bottom: 2rem; line-height: 1.7;">
+        <p style="font-size: 0.95rem; color: var(--text); margin-bottom: 2rem; line-height: 1.7;">
           ${data.manifesto}
         </p>
 
@@ -613,7 +752,7 @@
         <div class="gallery-grid">
           ${data.gallery.map(img => `
             <div style="border: 1px solid var(--border); background: var(--surface); padding: 0.5rem;">
-              <div style="aspect-ratio: 4/3; overflow: hidden; background: #eee; position: relative;">
+              <div style="aspect-ratio: 4/3; overflow: hidden; background: var(--input-bg); position: relative;">
                 <img 
                   src="${img.url}" 
                   alt="${img.alt}" 
@@ -648,7 +787,7 @@
     });
   </script>
 
-  <!-- Asynchronous Form Submissions Handler -->
+  <!-- FORM TRANSMISSION HANDLER -->
   <script>
     const feedbackForm = document.getElementById("feedback-form");
     const feedbackStatus = document.getElementById("feedback-status");
