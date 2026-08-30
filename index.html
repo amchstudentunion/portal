@@ -281,6 +281,32 @@
   color: var(--text);
   border-color: var(--text);
 }
+    /* By default (Formal Mode), hide rebel elements */
+.rebel-content {
+  display: none !important;
+}
+.formal-content {
+  display: block;
+}
+
+/* When Rebel Mode is active, swap visibility */
+[data-vibe="rebel"] .formal-content {
+  display: none !important;
+}
+[data-vibe="rebel"] .rebel-content {
+  display: block !important;
+}
+
+/* Inline span variants for small inline phrases */
+span.rebel-inline {
+  display: none;
+}
+[data-vibe="rebel"] span.rebel-inline {
+  display: inline !important;
+}
+[data-vibe="rebel"] span.formal-inline {
+  display: none !important;
+}
   </style>
 </head>
 <body>
@@ -943,5 +969,38 @@ setInterval(updateCountdowns, 60000); // Ticks every minute
     document.documentElement.setAttribute('data-vibe', 'rebel');
   }
 </script>
+  <!-- Put this right before </body> at the bottom of index.html -->
+  <script>
+    function toggleVibe() {
+      const current = document.documentElement.getAttribute('data-vibe');
+      const next = current === 'rebel' ? 'formal' : 'rebel';
+      
+      document.documentElement.setAttribute('data-vibe', next);
+      localStorage.setItem('portal_vibe', next);
+
+      // Update button label
+      const btn = document.querySelector('.secret-toggle-btn');
+      if (btn) {
+        btn.textContent = next === 'rebel' ? '🔒 Cloak' : '⚡ Uncloak';
+      }
+    }
+
+    // Secret hotkey: Ctrl + Shift + X
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'x') {
+        toggleVibe();
+      }
+    });
+
+    // Load saved mode on startup
+    if (localStorage.getItem('portal_vibe') === 'rebel') {
+      document.documentElement.setAttribute('data-vibe', 'rebel');
+      const btn = document.querySelector('.secret-toggle-btn');
+      if (btn) btn.textContent = '🔒 Cloak';
+    }
+  </script>
+
+</body>
+</html>
 </body>
 </html>
