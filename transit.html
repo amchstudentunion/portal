@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suburban Transit & Commute Guide | Students' Union</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FBFBFA;
+      --surface: #FFFFFF;
+      --text: #181818;
+      --muted: #737373;
+      --border: #E5E5E3;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+    [data-vibe="rebel"] {
+      --bg: #0F0E17 !important;
+      --surface: #1E1C2B !important;
+      --text: #FFFFFE !important;
+      --muted: #A7A9BE !important;
+      --border: #FF8906 !important;
+      --font-serif: 'Syne', sans-serif !important;
+      --font-sans: 'Plus Jakarta Sans', sans-serif !important;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; padding: 2rem 5vw; }
+    
+    header { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 3rem; }
+    nav { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; }
+    .brand { font-family: var(--font-serif); font-size: 1.75rem; text-decoration: none; color: var(--text); font-weight: 600; }
+    .nav-links a { margin-left: 1.25rem; text-decoration: none; color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav-links a:hover { color: var(--text); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .card { border: 1px solid var(--border); padding: 1.5rem; background: var(--surface); }
+    .card h3 { font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 0.5rem; font-weight: 400; }
+    .card p { color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem; }
+    
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 1rem; }
+    th { border-bottom: 1px solid var(--text); text-align: left; padding: 0.5rem 0; font-family: var(--font-serif); font-size: 1.1rem; }
+    td { border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+
+    footer { border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 5rem; color: var(--muted); font-size: 0.85rem; display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="brand">STUDENTS' UNION</a>
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="academics.html">Survival Manual</a>
+          <a href="transit.html" style="color: var(--text); font-weight: 600;">Transit Guide</a>
+          <a href="events.html">Events</a>
+          <a href="blog.html">Dispatches</a>
+        </div>
+        <button class="secret-toggle-btn" onclick="toggleVibe()">⚡ Uncloak</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 style="font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; margin-bottom: 0.5rem;">Suburban Campus Transit Guide</h1>
+    <p style="color: var(--muted); margin-bottom: 3rem;">How to navigate to and from Arunai Medical College (Velu Nagar NH Bypass) to town centers, bus stands, and railway links.</p>
+
+    <div class="grid">
+      <!-- 1. Town to Campus Auto Norms -->
+      <div class="card">
+        <h3>1. Auto Fares & Shared Stands</h3>
+        <p>Because the campus sits on the outer bypass, autos often quote inflated single-hire rates. Standard student norms:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Route</th>
+              <th>Norm (Shared)</th>
+              <th>Private Hire</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Campus Gate &harr; Old Bus Stand</td>
+              <td>₹20 – ₹30</td>
+              <td>₹120 – ₹150</td>
+            </tr>
+            <tr>
+              <td>Campus Gate &harr; Central Bus Stand</td>
+              <td>₹25 – ₹35</td>
+              <td>₹140 – ₹180</td>
+            </tr>
+            <tr>
+              <td>Campus &harr; Railway Station</td>
+              <td>—</td>
+              <td>₹150 – ₹200</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 2. City Bus Routes -->
+      <div class="card">
+        <h3>2. Local Town Bus Stops</h3>
+        <p>Frequent government town buses run past the Velu Nagar bypass stop during daylight hours:</p>
+        <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8;">
+          <li><strong>Bypass Stage Buses:</strong> Board buses heading towards Chengam / Bangalore highway or Villupuram link.</li>
+          <li><strong>Last Bus Advisory:</strong> Local town frequencies drop sharply after 08:30 PM. Always have a trusted auto driver number saved if returning from town near curfew hours[cite: 1].</li>
+        </ul>
+      </div>
+
+      <!-- 3. Inter-City Connections -->
+      <div class="card">
+        <h3>3. Going Home (Weekend Transit)</h3>
+        <p>Connecting to major hubs across Tamil Nadu from Central Bus Stand:</p>
+        <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8;">
+          <li><strong>Chennai (Kilambakkam KCBT / CMBT):</strong> Direct SETC/TNSTC buses leave every 15–20 minutes via Tindivanam.</li>
+          <li><strong>Vellore / Katpadi Jn:</strong> Regular direct buses; convenient for north-bound train connections.</li>
+          <li><strong>Salem / Coimbatore / Trichy:</strong> Regular departures via Harur/Villupuram routes.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; Students' Union. Independent & Student-Run.</p>
+    <p><a href="index.html" style="color: var(--text); text-decoration: underline;">&larr; Return to Central Hub</a></p>
+  </footer>
+
+  <script>
+    function toggleVibe() {
+      const current = document.documentElement.getAttribute('data-vibe');
+      const next = current === 'rebel' ? 'formal' : 'rebel';
+      document.documentElement.setAttribute('data-vibe', next);
+      localStorage.setItem('portal_vibe', next);
+    }
+    if (localStorage.getItem('portal_vibe') === 'rebel') {
+      document.documentElement.setAttribute('data-vibe', 'rebel');
+    }
+  </script>
+</body>
+</html>
