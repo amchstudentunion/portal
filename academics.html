@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Survival Manual | MBBS Years 1 to 4</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #FBFBFA;
+      --surface: #FFFFFF;
+      --text: #181818;
+      --muted: #737373;
+      --border: #E5E5E3;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+    [data-vibe="rebel"] {
+      --bg: #0F0E17 !important;
+      --surface: #1E1C2B !important;
+      --text: #FFFFFE !important;
+      --muted: #A7A9BE !important;
+      --border: #FF8906 !important;
+      --font-serif: 'Syne', sans-serif !important;
+      --font-sans: 'Plus Jakarta Sans', sans-serif !important;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; padding: 2rem 5vw; }
+    
+    header { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 3rem; }
+    nav { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; }
+    .brand { font-family: var(--font-serif); font-size: 1.75rem; text-decoration: none; color: var(--text); font-weight: 600; }
+    .nav-links a { margin-left: 1.25rem; text-decoration: none; color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* Year Selector Tabs */
+    .tab-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+    .tab-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .tab-btn.active { background: var(--text); color: var(--bg); font-weight: 600; }
+
+    .year-panel { display: none; }
+    .year-panel.active { display: block; animation: fadeIn 0.2s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .guide-card { border: 1px solid var(--border); padding: 1.75rem; background: var(--surface); margin-bottom: 1.5rem; }
+    .guide-card h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.5rem; font-weight: 400; }
+    .guide-card ul { padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.8; color: var(--text); }
+
+    footer { border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 5rem; color: var(--muted); font-size: 0.85rem; display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html" class="brand">STUDENTS' UNION</a>
+      <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="academics.html" style="color: var(--text); font-weight: 600;">Survival Manual</a>
+          <a href="transit.html">Transit Guide</a>
+          <a href="events.html">Events</a>
+          <a href="blog.html">Dispatches</a>
+        </div>
+        <button class="secret-toggle-btn" onclick="toggleVibe()" title="Toggle Vibe (or press Ctrl+Shift+X)">⚡ Uncloak</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1 style="font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; margin-bottom: 0.5rem;">The Academic Survival Manual</h1>
+    <p style="color: var(--muted); margin-bottom: 2.5rem;">Phase-by-phase survival roadmaps, textbook choices, and exam blueprints passed down across batches.</p>
+
+    <!-- Year Tabs -->
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchYear('yr1')">1st Year (Zenarianz)</button>
+      <button class="tab-btn" onclick="switchYear('yr2')">2nd Year (Stratonz)</button>
+      <button class="tab-btn" onclick="switchYear('yr3')">3rd Year (Xandarianz)</button>
+      <button class="tab-btn" onclick="switchYear('yr4')">Final Year (Ryzentronz)</button>
+    </div>
+
+    <!-- 1ST YEAR -->
+    <div id="yr1" class="year-panel active">
+      <div class="guide-card">
+        <h3>Anatomy: Dissection & Histology</h3>
+        <ul>
+          <li><strong>Textbooks:</strong> B.D. Chaurasia (standard) or Vishram Singh (clinical flow). For Neuroanatomy, rely on Vishram Singh.</li>
+          <li><strong>Dissection Hall:</strong> Never walk in without reading Cunningham's manual steps. Keep a dedicated bone set study group.</li>
+          <li><strong>Histology:</strong> Draw diagrams with Sharpie/Pencil sets the same week practicals end to avoid pre-exam record backlogs.</li>
+        </ul>
+      </div>
+      <div class="guide-card">
+        <h3>Physiology: Concepts & Clinicals</h3>
+        <ul>
+          <li><strong>Textbooks:</strong> Guyton & Hall for deep concepts; A.K. Jain or G.K. Pal for university exam-oriented answers.</li>
+          <li><strong>Hematology Lab:</strong> Master RBC/WBC counts and calculation formulas early; examiners prioritize calculation neatness.</li>
+        </ul>
+      </div>
+      <div class="guide-card">
+        <h3>Biochemistry: Cycles & Nutrition</h3>
+        <ul>
+          <li><strong>Textbooks:</strong> U. Satyanarayana for rapid revision; DM Vasudevan for clinical case integrations.</li>
+          <li><strong>High-Yield:</strong> Glycolysis, TCA, HMP Shunt, Urea cycle, Lipid transport pathways, and Vitamin deficiency syndromes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2ND YEAR -->
+    <div id="yr2" class="year-panel">
+      <div class="guide-card">
+        <h3>Pathology: General & Systemic</h3>
+        <ul>
+          <li><strong>Textbooks:</strong> Robbins Basic Pathology (gold standard for concepts); Harsh Mohan or Ramadas Nayak for exam writing.</li>
+          <li><strong>Practical Strategy:</strong> Learn to identify gross specimens by shape, capsule, cut surface, and necrosis patterns before microscopy.</li>
+        </ul>
+      </div>
+      <div class="guide-card">
+        <h3>Pharmacology: Drug Mechanisms & Tox</h3>
+        <ul>
+          <li><strong>Textbooks:</strong> K.D. Tripathi (standard); Shanbhag for quick revisions and drug classifications.</li>
+          <li><strong>Prescription Writing:</strong> Practice legible, standard format prescriptions with doses, frequency, and instructions.</li>
+        </ul>
+      </div>
+      <div class="guide-card">
+        <h3>Microbiology: Bugs & Immunity</h3>
+        <ul>
+          <li><strong>Textbooks:</strong> Apurba Sastry (essential for systemic bacteriology and clinical parasitology).</li>
+          <li><strong>Culture Media:</strong> Focus on MacConkey, Blood Agar, and selective media characteristics for viva.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3RD YEAR -->
+    <div id="yr3" class="year-panel">
+      <div class="guide-card">
+        <h3>Community Medicine (PSM)</h3>
+        <ul>
+          <li><strong>Textbooks:</strong> Park’s Textbook of Preventive and Social Medicine.</li>
+          <li><strong>Field Clinics:</strong> Take family study cases and epidemiological survey postings seriously for practical viva.</li>
+        </ul>
+      </div>
+      <div class="guide-card">
+        <h3>Ophthalmology & ENT</h3>
+        <ul>
+          <li><strong>Ophtha:</strong> A.K. Khurana (corneal ulcers, cataracts, and glaucoma diagnosis).</li>
+          <li><strong>ENT:</strong> P.L. Dhingra (CSOM, DNS, tracheostomy protocols, and audiometry interpretations).</li>
+        </ul>
+      </div>
+      <div class="guide-card">
+        <h3>Forensic Medicine & Toxicology (FMT)</h3>
+        <ul>
+          <li><strong>Textbooks:</strong> K.S. Narayan Reddy / Gautam Biswas.</li>
+          <li><strong>Key Topics:</strong> IPC codes, post-mortem changes, ballistics, and medical jurisprudence.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FINAL YEAR -->
+    <div id="yr4" class="year-panel">
+      <div class="guide-card">
+        <h3>General Medicine</h3>
+        <ul>
+          <li><strong>Textbooks:</strong> Davidson's Principles & Practice of Medicine; Mathews / Kundu for clinical bedside examination.</li>
+          <li><strong>Ward Habit:</strong> Examine at least one respiratory and CVS patient daily during morning clinics.</li>
+        </ul>
+      </div>
+      <div class="guide-card">
+        <h3>General Surgery</h3>
+        <ul>
+          <li><strong>Textbooks:</strong> Bailey & Love (standard); S. Das for bedside surgical elicitation and palpation signs.</li>
+        </ul>
+      </div>
+      <div class="guide-card">
+        <h3>OBG & Paediatrics</h3>
+        <ul>
+          <li><strong>OBG:</strong> DC Dutta (Obstetrics) & Shaw’s (Gynaecology).</li>
+          <li><strong>Paeds:</strong> OP Ghai (milestones, immunization schedules, and neonatal resuscitation).</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; Students' Union. Independent & Student-Run.</p>
+    <p><a href="index.html" style="color: var(--text); text-decoration: underline;">&larr; Return to Central Hub</a></p>
+  </footer>
+
+  <script>
+    function switchYear(yrId) {
+      document.querySelectorAll('.year-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(yrId).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    function toggleVibe() {
+      const current = document.documentElement.getAttribute('data-vibe');
+      const next = current === 'rebel' ? 'formal' : 'rebel';
+      document.documentElement.setAttribute('data-vibe', next);
+      localStorage.setItem('portal_vibe', next);
+    }
+    if (localStorage.getItem('portal_vibe') === 'rebel') {
+      document.documentElement.setAttribute('data-vibe', 'rebel');
+    }
+  </script>
+</body>
+</html>
