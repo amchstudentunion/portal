@@ -5,45 +5,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Students' Union | Medical College Portal</title>
   
-  <!-- Minimalist Editorial Typography -->
+  <!-- Minimalist Editorial & Rebel Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Fonts for Rebel / Playful Mode -->
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;700;800&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* Theme Definitions */
-   /* Clean Base Theme (Light Mode Default) */
-:root, [data-theme="white"] {
-  --bg: #FDFDFD;
-  --surface: #FFFFFF;
-  --card-bg: #FFFFFF;
-  --input-bg: #F8F9FA;
-  --text: #181818;
-  --muted: #737373;
-  --border: #E5E5E3;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, sans-serif;
-}
+    /* Clean Base Theme (Light Mode Default) */
+    :root, [data-theme="white"] {
+      --bg: #FDFDFD;
+      --surface: #FFFFFF;
+      --card-bg: #FFFFFF;
+      --input-bg: #F8F9FA;
+      --text: #181818;
+      --muted: #737373;
+      --border: #E5E5E3;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
 
-/* Dark Mode */
-[data-theme="dark"] {
-  --bg: #121212;
-  --surface: #1E1E1E;
-  --card-bg: #181818;
-  --input-bg: #141414;
-  --text: #EDEDED;
-  --muted: #9E9E9E;
-  --border: #2C2C2C;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, sans-serif;
-}
+    /* Dark Mode */
+    [data-theme="dark"] {
+      --bg: #121212;
+      --surface: #1E1E1E;
+      --card-bg: #181818;
+      --input-bg: #141414;
+      --text: #EDEDED;
+      --muted: #9E9E9E;
+      --border: #2C2C2C;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+
+    /* ================= SECRET REBEL MODE OVERRIDES ================= */
+    [data-vibe="rebel"] {
+      --bg: #0d0e15 !important;
+      --surface: #171926 !important;
+      --card-bg: #1a1d2e !important;
+      --text: #f4f4f6 !important;
+      --muted: #94a1b2 !important;
+      --border: #ff5470 !important;
+      --accent-pink: #ff5470;
+      --accent-green: #00eb84;
+      --accent-yellow: #fde24f;
+      --input-bg: #11121c !important;
+      --font-serif: 'Syne', sans-serif !important;
+      --font-sans: 'Space Grotesk', sans-serif !important;
+    }
+
+    [data-vibe="rebel"] body {
+      background-color: var(--bg) !important;
+      background-image: radial-gradient(#24283b 1px, transparent 1px) !important;
+      background-size: 24px 24px !important;
+      color: var(--text) !important;
+    }
+
+    [data-vibe="rebel"] .brand {
+      color: var(--accent-yellow) !important;
+      font-family: 'Syne', sans-serif !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.02em;
+    }
+    [data-vibe="rebel"] .brand::after {
+      content: " // UNCENSORED ⚡" !important;
+      color: var(--accent-pink) !important;
+      font-size: 0.8rem !important;
+      font-weight: 700 !important;
+    }
+
+    [data-vibe="rebel"] .card, 
+    [data-vibe="rebel"] .batch-btn,
+    [data-vibe="rebel"] .ticker-bar,
+    [data-vibe="rebel"] .google-map-container {
+      border: 2px solid var(--accent-pink) !important;
+      box-shadow: 4px 4px 0px var(--accent-pink) !important;
+      transform: rotate(-0.3deg);
+      border-radius: 4px !important;
+      background: var(--card-bg) !important;
+    }
+
+    [data-vibe="rebel"] .card:hover,
+    [data-vibe="rebel"] .batch-btn:hover {
+      transform: translate(-2px, -2px) !important;
+      box-shadow: 6px 6px 0px var(--accent-green) !important;
+      border-color: var(--accent-green) !important;
+    }
+
+    [data-vibe="rebel"] h1, 
+    [data-vibe="rebel"] h2, 
+    [data-vibe="rebel"] h3 {
+      font-family: 'Syne', sans-serif !important;
+      font-weight: 800 !important;
+      color: #ffffff !important;
+    }
+
+    [data-vibe="rebel"] .section-header {
+      border-bottom: 2px dashed var(--accent-green) !important;
+    }
+    [data-vibe="rebel"] .section-header span {
+      color: var(--accent-yellow) !important;
+      font-family: 'Space Grotesk', monospace !important;
+      font-weight: 700;
+    }
+    [data-vibe="rebel"] .ticker-value {
+      color: var(--accent-green) !important;
+      font-family: 'Space Grotesk', monospace !important;
+    }
+    [data-vibe="rebel"] button[type="submit"] {
+      background: var(--accent-pink) !important;
+      color: #000000 !important;
+      font-family: 'Syne', sans-serif !important;
+      font-weight: 800 !important;
+      text-transform: uppercase;
+      border: 2px solid #ffffff !important;
+      box-shadow: 3px 3px 0px #ffffff !important;
+    }
+
+    /* Content Swapping Rules */
+    .rebel-content { display: none !important; }
+    .formal-content { display: block; }
+    [data-vibe="rebel"] .formal-content { display: none !important; }
+    [data-vibe="rebel"] .rebel-content { display: block !important; }
+
+    span.rebel-inline { display: none; }
+    [data-vibe="rebel"] span.rebel-inline { display: inline !important; }
+    [data-vibe="rebel"] span.formal-inline { display: none !important; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; padding: 2rem 5vw; }
     
-    /* Top Live Countdown Ribbon */
     .ticker-bar {
       border: 1px solid var(--border);
       background: var(--surface);
@@ -60,15 +150,25 @@
     .ticker-label { text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); }
     .ticker-value { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 600; color: var(--text); }
 
-    header { border-bottom: 1px solid var(--border); padding-bottom: 2rem; margin-bottom: 4rem; }
+    header { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 3.5rem; }
     nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem; }
-    .brand { font-family: var(--font-serif); font-size: 1.75rem; text-decoration: none; color: var(--text); font-weight: 600; letter-spacing: -0.01em; }
     
-    .nav-right { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-right: 1.25rem; transition: color 0.2s; }
+    /* Secret Trigger Brand Link */
+    .brand { 
+      font-family: var(--font-serif); 
+      font-size: 1.75rem; 
+      text-decoration: none; 
+      color: var(--text); 
+      font-weight: 600; 
+      letter-spacing: -0.01em; 
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .nav-right { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-right: 1rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
 
-    /* Theme Segmented Switcher */
     .theme-switch {
       display: inline-flex;
       border: 1px solid var(--border);
@@ -93,7 +193,7 @@
     }
 
     .hero { margin-bottom: 5rem; max-width: 900px; }
-    .hero h1 { font-family: var(--font-serif); font-size: clamp(2.75rem, 6vw, 5rem); font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 5.5vw, 4.5rem); font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
     .hero p { font-size: 1.1rem; color: var(--muted); font-weight: 300; max-width: 640px; }
 
     section { margin-bottom: 5.5rem; }
@@ -107,7 +207,6 @@
     .card p { color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem; }
     .card a { text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.85rem; border-bottom: 1px solid var(--text); }
 
-    /* Batches list */
     .batches-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
     .batch-btn {
       border: 1px solid var(--border);
@@ -125,7 +224,6 @@
     .batch-btn .title { font-family: var(--font-serif); font-size: 1.55rem; color: var(--text); margin-top: 0.5rem; line-height: 1.1; }
     .batch-btn.crmi { border: 1.5px solid var(--text); }
 
-    /* Google Map */
     .google-map-container {
       position: relative;
       width: 100%;
@@ -141,7 +239,6 @@
       filter: grayscale(20%) contrast(1.02);
     }
 
-    /* Modal Backdrop */
     .modal-backdrop {
       display: none;
       position: fixed;
@@ -223,86 +320,11 @@
     }
 
     footer { border-top: 1px solid var(--border); padding-top: 2rem; color: var(--muted); font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    /* ================= SECRET REBEL MODE OVERRIDES ================= */
-[data-vibe="rebel"] {
-  --bg: #0F0E17 !important;
-  --surface: #1E1C2B !important;
-  --card-bg: #232136 !important;
-  --text: #FFFFFE !important;
-  --muted: #A7A9BE !important;
-  --border: #FF8906 !important;
-  --input-bg: #141320 !important;
-  --font-serif: 'Syne', sans-serif !important;
-  --font-sans: 'Plus Jakarta Sans', sans-serif !important;
-}
-
-[data-vibe="rebel"] body {
-  background-color: var(--bg);
-  color: var(--text);
-}
-
-[data-vibe="rebel"] .brand::after {
-  content: " // UNCENSORED ⚡";
-  color: #FF8906;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-[data-vibe="rebel"] .card, 
-[data-vibe="rebel"] .batch-btn {
-  border: 2px solid #FF8906 !important;
-  box-shadow: 4px 4px 0px #FF8906 !important;
-  transform: rotate(-0.3deg);
-  border-radius: 6px;
-}
-
-/* Discreet Uncloak Button */
-.secret-toggle-btn {
-  background: none;
-  border: 1px dashed var(--border);
-  color: var(--muted);
-  font-size: 0.7rem;
-  padding: 0.25rem 0.55rem;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-.secret-toggle-btn:hover {
-  color: var(--text);
-  border-color: var(--text);
-}
-    /* By default (Formal Mode), hide rebel elements */
-.rebel-content {
-  display: none !important;
-}
-.formal-content {
-  display: block;
-}
-
-/* When Rebel Mode is active, swap visibility */
-[data-vibe="rebel"] .formal-content {
-  display: none !important;
-}
-[data-vibe="rebel"] .rebel-content {
-  display: block !important;
-}
-
-/* Inline span variants for small inline phrases */
-span.rebel-inline {
-  display: none;
-}
-[data-vibe="rebel"] span.rebel-inline {
-  display: inline !important;
-}
-[data-vibe="rebel"] span.formal-inline {
-  display: none !important;
-}
   </style>
 </head>
 <body>
 
-  <!-- Live Countdown Ticker -->
+  <!-- Live Countdown Ticker Ribbon -->
   <div class="ticker-bar">
     <div class="ticker-item">
       <span class="ticker-label">Next Girivalam (Pournami):</span>
@@ -314,44 +336,28 @@ span.rebel-inline {
     </div>
   </div>
 
+  <!-- Header with Secret Clickable Brand Trigger -->
   <header>
     <nav>
-  <a href="index.html" class="brand">STUDENTS' UNION</a>
-  <div class="nav-right">
-    <div class="nav-links">
-      <a href="index.html#batches">Batches</a>
-      <a href="index.html#freshers-survival">Freshers</a>
-      <a href="events.html">Events</a>
-      <a href="blog.html">Dispatches / Blog</a>
-      <a href="index.html#grievance">Feedback</a>
-    </div>
-    <!-- Theme switcher remains here -->
-        <!-- 3-Way Mode Switcher -->
+      <!-- Click "STUDENTS' UNION" 1 time or hit Ctrl+Shift+X to toggle Rebel Mode -->
+      <a href="javascript:void(0)" class="brand" onclick="toggleVibe()" title="STUDENTS' UNION">STUDENTS' UNION</a>
+      
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#batches">Batches</a>
+          <a href="#freshers-survival">Freshers</a>
+          <a href="#city-realities">Campus Rules</a>
+          <a href="events.html">Events</a>
+          <a href="blog.html">Dispatches</a>
+          <a href="#grievance">Feedback</a>
+        </div>
+
+        <!-- 2-Way Light / Dark Switcher -->
         <div class="theme-switch">
-          <button class="theme-btn" onclick="setTheme('paper')" id="btn-paper">Paper</button>
-          <button class="theme-btn" onclick="setTheme('white')" id="btn-white">White</button>
+          <button class="theme-btn active" onclick="setTheme('white')" id="btn-white">Light</button>
           <button class="theme-btn" onclick="setTheme('dark')" id="btn-dark">Dark</button>
         </div>
       </div>
-      <div class="nav-right" style="display: flex; align-items: center; gap: 1rem;">
-  <div class="nav-links">
-    <a href="#batches">Batches</a>
-    <a href="#freshers-survival">Freshers</a>
-    <a href="#city-realities">Campus Rules</a>
-    <a href="#book-requests">Exchange</a>
-    <a href="#grievance">Feedback</a>
-  </div>
-  
-  <!-- 3-Way Mode Switcher -->
-  <div class="theme-switch">
-    <button class="theme-btn" onclick="setTheme('paper')" id="btn-paper">Paper</button>
-    <button class="theme-btn" onclick="setTheme('white')" id="btn-white">White</button>
-    <button class="theme-btn" onclick="setTheme('dark')" id="btn-dark">Dark</button>
-  </div>
-
-  <!-- The Secret Switcher -->
-  <button class="secret-toggle-btn" onclick="toggleVibe()" title="Toggle Vibe (or press Ctrl+Shift+X)">⚡ Uncloak</button>
-</div>
     </nav>
   </header>
 
@@ -359,16 +365,30 @@ span.rebel-inline {
     <!-- Hero Manifesto -->
     <section class="hero">
       <h1>
-         <span class="formal-inline"> Camaraderie, discipline, and student life.</span>
-      <span class="rebel-inline"> Ipdi matukitiye pangu </span> </h1>
-      <p>The collective guide for navigating medical academics, hostel living, and life across Tiruvannamalai. Maintained independently by the student body.</p>
+        <span class="formal-inline">Camaraderie, discipline, and student life.</span>
+        <span class="rebel-inline">“Enna thambi, bayama iruka? MBBS-ku vandha idhelaam paathudhaan aaganum.”</span>
+      </h1>
+      <div class="formal-content">
+        <p>The collective guide for navigating medical academics, hostel living, and life across Tiruvannamalai. Maintained independently by the student body.</p>
+      </div>
+      <div class="rebel-content">
+        <p style="color: #00eb84; font-weight: 500;">
+          Welcome to the survival network. Practical tips, exam hacks, warden timing alerts, and zero corporate PR. Seniors got your back.
+        </p>
+      </div>
     </section>
 
     <!-- Batches Section -->
     <section id="batches">
       <div class="section-header">
-        <h2>Batches of MBBS</h2>
-        <span>Select Batch to Open Space</span>
+        <h2>
+          <span class="formal-inline">Batches of MBBS</span>
+          <span class="rebel-inline">Namma Batch Squads 🔥</span>
+        </h2>
+        <span>
+          <span class="formal-inline">Select Batch to Open Space</span>
+          <span class="rebel-inline">Click to see who’s running the floor</span>
+        </span>
       </div>
       <div class="batches-list">
         <div class="batch-btn crmi" onclick="openBatchSpace('trigarianz')">
@@ -397,24 +417,53 @@ span.rebel-inline {
     <!-- SECTION: HOW TO SURVIVE FIRST YEAR MBBS -->
     <section id="freshers-survival">
       <div class="section-header">
-        <h2>How to Survive First Year</h2>
-        <span>Freshers' Academic & Practical Briefing</span>
+        <h2>
+          <span class="formal-inline">How to Survive First Year</span>
+          <span class="rebel-inline">First Year Survival Kit 💀</span>
+        </h2>
+        <span>
+          <span class="formal-inline">Freshers' Academic & Practical Briefing</span>
+          <span class="rebel-inline">“Padikkala na hall ticket thara maataanga”</span>
+        </span>
       </div>
       <div class="grid">
         <div class="card">
-          <h3>1. Anatomy & Dissection Hall (DH)</h3>
-          <p><strong>Dress Code:</strong> Clean apron, ID card, hair tied back. Mandatory dissection kit with B.P. blade holder (#24), forceps, and gloves.</p>
-          <p style="font-size: 0.85rem; color: var(--muted);">Read Cunningham's Dissection Manual before entering the hall. Respect cadaveric donors at all times.</p>
+          <div class="formal-content">
+            <h3>1. Anatomy & Dissection Hall</h3>
+            <p><strong>Dress Code:</strong> Clean apron, ID card, hair tied back. Mandatory dissection kit with B.P. blade holder (#24), forceps, and gloves.</p>
+            <p style="font-size: 0.85rem; color: var(--muted);">Read Cunningham's Dissection Manual before entering the hall. Respect cadaveric donors at all times.</p>
+          </div>
+          <div class="rebel-content">
+            <h3>1. DH Protocols (Anatomy)</h3>
+            <p><strong>“Apron illama DH ulla kaal vecha veliya thurathiruvaanga.”</strong></p>
+            <p style="font-size: 0.85rem; color: var(--muted);">BP blade #24 set, tooth forceps, and Cunningham textbook are non-negotiable. Don't touch bones without senior notes first.</p>
+          </div>
         </div>
+
         <div class="card">
-          <h3>2. Physiology Practical Decorum</h3>
-          <p><strong>Clinical Focus:</strong> Hematology experiments (RBC/WBC count, ESR, blood grouping) and human system tracings.</p>
-          <p style="font-size: 0.85rem; color: var(--muted);">Keep logbooks and practical observation manuals signed weekly by tutors to avoid end-posting halts.</p>
+          <div class="formal-content">
+            <h3>2. Physiology Practical Decorum</h3>
+            <p><strong>Clinical Focus:</strong> Hematology experiments (RBC/WBC count, ESR, blood grouping) and human system tracings.</p>
+            <p style="font-size: 0.85rem; color: var(--muted);">Keep logbooks and practical observation manuals signed weekly by tutors to avoid end-posting halts.</p>
+          </div>
+          <div class="rebel-content">
+            <h3>2. Physio Logbooks</h3>
+            <p><strong>“Last minute-la sign vanga mudiyadhu da!”</strong></p>
+            <p style="font-size: 0.85rem; color: var(--muted);">Get weekly RBC/WBC practical manual calculations signed on time. If tutors reject your observation chart, prepare for double assignments.</p>
+          </div>
         </div>
+
         <div class="card">
-          <h3>3. Biochemistry Cycles & Charts</h3>
-          <p><strong>Exam Strategy:</strong> Master metabolism pathways, enzyme kinetics cycles, and clinical case interpretations (LFT, RFT, lipid profiles).</p>
-          <p style="font-size: 0.85rem; color: var(--muted);">Form small study clusters early on for active recall of chemical cycles.</p>
+          <div class="formal-content">
+            <h3>3. Biochemistry Cycles & Charts</h3>
+            <p><strong>Exam Strategy:</strong> Master metabolism pathways, enzyme kinetics cycles, and clinical case interpretations (LFT, RFT, lipid profiles).</p>
+            <p style="font-size: 0.85rem; color: var(--muted);">Form small study clusters early on for active recall of chemical cycles.</p>
+          </div>
+          <div class="rebel-content">
+            <h3>3. Biochem Cycles</h3>
+            <p><strong>“Cycles mattum ozhunga draw panna pass aagirlam.”</strong></p>
+            <p style="font-size: 0.85rem; color: var(--muted);">Glycolysis, Krebs cycle, and Urea cycle charts must be memorized with cofactors. Draw them daily on rough paper.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -422,32 +471,67 @@ span.rebel-inline {
     <!-- SECTION: WHAT TO EXPECT FROM COLLEGE & THE CITY -->
     <section id="city-realities">
       <div class="section-header">
-        <h2>What to Expect: Campus & Town Realities</h2>
-        <span>Rules, Curfews & Third-Tier City Dynamics</span>
+        <h2>
+          <span class="formal-inline">What to Expect: Campus & Town Realities</span>
+          <span class="rebel-inline">Hostel & Town Scene (Real Talk) 🔒</span>
+        </h2>
+        <span>
+          <span class="formal-inline">Rules, Curfews & Third-Tier City Dynamics</span>
+          <span class="rebel-inline">“Time-ku ulla vandhuru pa!”</span>
+        </span>
       </div>
       <div class="grid">
         <div class="card">
-          <h3>Hostel Rules & Strict Curfew</h3>
-          <p>The administration enforces firm in-timing rules for all campus hostels[cite: 1]:</p>
-          <ul style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
-            <li><strong>Girls' Hostel Curfew:</strong> Strictly 08:00 PM[cite: 1]. Roll call and attendance conducted nightly.</li>
-            <li><strong>Boys' Hostel Curfew:</strong> Strictly 09:00 PM[cite: 1]. Gate passes required for leaving town on weekends.</li>
-            <li>No outside night food deliveries or unauthorized gate loitering are permitted after closing hours[cite: 1].</li>
-          </ul>
+          <div class="formal-content">
+            <h3>Hostel Rules & Strict Curfew</h3>
+            <p>The administration enforces firm in-timing rules for all campus hostels[cite: 1]:</p>
+            <ul style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
+              <li><strong>Girls' Hostel Curfew:</strong> Strictly 08:00 PM[cite: 1]. Attendance conducted nightly.</li>
+              <li><strong>Boys' Hostel Curfew:</strong> Strictly 09:00 PM[cite: 1]. Gate passes required for leaving town on weekends.</li>
+              <li>No outside night food deliveries or unauthorized gate loitering are permitted[cite: 1].</li>
+            </ul>
+          </div>
+          <div class="rebel-content">
+            <h3>Curfew In-Timings</h3>
+            <p><strong>“Warden signature vanguradhu romba kashdam.”</strong></p>
+            <ul style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
+              <li>Girls: 08:00 PM dot[cite: 1]. Boys: 09:00 PM dot[cite: 1]. Biometric logs don't wait for late bypass autos.</li>
+              <li>If you miss curfew, you'll be writing an explanation letter in the warden office next morning[cite: 1].</li>
+            </ul>
+          </div>
         </div>
+
         <div class="card">
-          <h3>Town Infrastructure & Drawbacks</h3>
-          <p>Tiruvannamalai is a tier-3 temple town with distinct characteristics[cite: 1]:</p>
-          <ul style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
-            <li>No major multiplexes or commercial shopping malls. Entertainment centers on sports, cafe circles, and hill treks[cite: 1].</li>
-            <li>Local transport winds down post 9:00 PM; public transit operates largely on daytime frequencies.</li>
-            <li>Heavy town footfalls during full moon (Girivalam) dates—plan transit in advance.</li>
-          </ul>
+          <div class="formal-content">
+            <h3>Town Infrastructure</h3>
+            <p>Tiruvannamalai is a tier-3 temple town with distinct characteristics[cite: 1]:</p>
+            <ul style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
+              <li>No major multiplexes or commercial shopping malls[cite: 1]. Entertainment centers on campus sports and cafe circles[cite: 1].</li>
+              <li>Local transport winds down post 9:00 PM.</li>
+              <li>Heavy town footfalls during Pournami (Girivalam) dates.</li>
+            </ul>
+          </div>
+          <div class="rebel-content">
+            <h3>Town Life Reality</h3>
+            <p><strong>“Inga perusa mall laam illa pangu.”</strong></p>
+            <ul style="font-size: 0.85rem; color: var(--text); padding-left: 1.2rem; line-height: 1.8;">
+              <li>No multiplexes. Campus ground matches, chai stalls, and Dhaba dinners are your only weekend scenes.</li>
+              <li>Bypass autos quote high fares after 8:30 PM. Always share rides in batch groups.</li>
+            </ul>
+          </div>
         </div>
+
         <div class="card">
-          <h3>Daytime Conveniences</h3>
-          <p>Stationery stores, pharmacy suppliers, tailoring shops for aprons, and local dining hubs exist along Polur Road and Bypass junctions[cite: 1].</p>
-          <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;">[Placeholder: Add verified tailor contacts for lab coat alterations here][cite: 1]</p>
+          <div class="formal-content">
+            <h3>Daytime Conveniences</h3>
+            <p>Stationery stores, pharmacy suppliers, tailoring shops for aprons, and local dining hubs exist along Polur Road and Bypass junctions[cite: 1].</p>
+            <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;">[Placeholder: Add verified tailor contacts for lab coat alterations here][cite: 1]</p>
+          </div>
+          <div class="rebel-content">
+            <h3>Daytime Spots</h3>
+            <p><strong>“Print out venumna Polur road poidu.”</strong></p>
+            <p style="font-size: 0.85rem; color: var(--muted);">Apron alteration and record chart prints are available near town bus stand. Don't wait until exam eve to get your lab coat hemmed.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -476,7 +560,7 @@ span.rebel-inline {
 
         <div class="card">
           <h3>Dining & Mess Routine</h3>
-          <p>Campus mess facilities operate on fixed schedules. Plan meal hours in accordance with class and posting intervals:</p>
+          <p>Campus mess facilities operate on fixed schedules. Plan meal hours accordingly:</p>
           <ul style="font-size: 0.85rem; padding-left: 1.2rem; line-height: 1.8; color: var(--text);">
             <li>Breakfast: 07:30 AM – 08:30 AM</li>
             <li>Lunch: 12:45 PM – 01:45 PM</li>
@@ -486,7 +570,7 @@ span.rebel-inline {
 
         <div class="card">
           <h3>Pharmacy & Medical Supplies</h3>
-          <p>In-house medical college stores and verified daytime distributors for diagnostic gear and prescription items:</p>
+          <p>In-house medical college stores and verified daytime distributors:</p>
           <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
             <li style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--border);">
               <span>Campus Hospital Pharmacy</span>
@@ -505,11 +589,10 @@ span.rebel-inline {
     <section id="map-section">
       <div class="section-header">
         <h2>Campus & Town Navigator</h2>
-        <span>Arunai Medical College & Hospital Base</span>
+        <span>Arunai Medical College Base</span>
       </div>
       
       <div class="google-map-container">
-        <!-- Live Google Map Embed Centered on Arunai Medical College -->
         <iframe 
           src="https://maps.google.com/maps?q=Arunai%20Medical%20College%20and%20Hospital%20Tiruvannamalai&t=&z=14&ie=UTF8&iwloc=&output=embed" 
           allowfullscreen="" 
@@ -522,14 +605,23 @@ span.rebel-inline {
     <!-- SECTION: JUNIOR BOOK & EQUIPMENT REQUEST PLACE -->
     <section id="book-requests">
       <div class="section-header">
-        <h2>Junior Book & Equipment Exchange</h2>
-        <span>Peer Pass-Down & Resource Portal</span>
+        <h2>
+          <span class="formal-inline">Junior Book & Equipment Exchange</span>
+          <span class="rebel-inline">Book & Bone Set Pass-Down 📚</span>
+        </h2>
+        <span>
+          <span class="formal-inline">Peer Pass-Down & Resource Portal</span>
+          <span class="rebel-inline">“Junior-ku help panna seniors irukkom”</span>
+        </span>
       </div>
 
       <div class="card" style="max-width: 720px; margin-bottom: 2rem;">
-        <h3 style="font-size: 1.25rem;">Request Study Material / Bone Sets</h3>
+        <h3 style="font-size: 1.25rem;">
+          <span class="formal-inline">Request Study Material / Bone Sets</span>
+          <span class="rebel-inline">Ask For Books & Kits Directly</span>
+        </h3>
         <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem;">
-          To ensure personal safety, juniors must provide their verified name and batch. The Union committee acts as a mediator to hand over requested materials inside campus common spaces[cite: 1].
+          To ensure personal safety, juniors must provide their verified name and batch. The Union coordinates safe handover inside library common areas[cite: 1].
         </p>
 
         <form id="book-request-form" action="https://formspree.io/f/mjybdjwn" method="POST" style="display: flex; flex-direction: column; gap: 1.1rem;">
@@ -563,7 +655,7 @@ span.rebel-inline {
 
           <div>
             <label style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Specific Edition or Details</label>
-            <textarea name="details" rows="3" placeholder="Specify author edition, preferred condition, or specific bone parts needed..." style="width: 100%; padding: 0.75rem; font-family: var(--font-sans); font-size: 0.9rem; resize: vertical;"></textarea>
+            <textarea name="details" rows="3" placeholder="Specify author edition, preferred condition, or specific bone sets needed..." style="width: 100%; padding: 0.75rem; font-family: var(--font-sans); font-size: 0.9rem; resize: vertical;"></textarea>
           </div>
 
           <button type="submit" style="background: var(--text); color: var(--bg); border: none; padding: 0.85rem 2rem; font-family: var(--font-serif); font-size: 1.1rem; cursor: pointer; align-self: flex-start;">
@@ -636,75 +728,78 @@ span.rebel-inline {
     </div>
   </div>
 
-  <!-- THEME SWITCHER & COUNTDOWN SCRIPT -->
+  <!-- JAVASCRIPT: THEMES, TOGGLES & COUNTDOWN -->
   <script>
-    // 1. Theme Switcher Logic
-    // Theme Switcher Logic (Light & Dark)
-function setTheme(themeName) {
-  document.documentElement.setAttribute('data-theme', themeName);
-  localStorage.setItem('union_theme', themeName);
-  
-  document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
-  const activeBtn = document.getElementById(`btn-${themeName}`);
-  if (activeBtn) activeBtn.classList.add('active');
-}
-
-// Initialize Theme (Defaults to Light/White)
-const savedTheme = localStorage.getItem('union_theme') || 'white';
-setTheme(savedTheme);
-
-    // Schedule of Pournami / Girivalam Dates (IST)
-const pournamiSchedule = [
-  "2026-08-27T18:00:00+05:30",
-  "2026-09-26T18:00:00+05:30",
-  "2026-10-25T18:00:00+05:30",
-  "2026-11-24T18:00:00+05:30",
-  "2026-12-23T18:00:00+05:30",
-  "2027-01-22T18:00:00+05:30",
-  "2027-02-20T18:00:00+05:30"
-];
-
-// Schedule of Upcoming University Examinations
-const examSchedule = [
-  { label: "Supple Exams", date: "2026-09-15T09:30:00+05:30" },
-  { label: "Regular University Finals", date: "2026-12-01T09:30:00+05:30" },
-  { label: "First Year Professional MBBS", date: "2027-02-15T09:30:00+05:30" }
-];
-
-function updateCountdowns() {
-  const now = new Date().getTime();
-
-  // 1. Find the earliest Pournami date that is in the future
-  const upcomingPournamiStr = pournamiSchedule.find(d => new Date(d).getTime() > now);
-  const nextGirivalam = upcomingPournamiStr ? new Date(upcomingPournamiStr).getTime() : null;
-
-  // 2. Find the earliest Exam date that is in the future
-  const upcomingExamObj = examSchedule.find(e => new Date(e.date).getTime() > now);
-  const nextExam = upcomingExamObj ? new Date(upcomingExamObj.date).getTime() : null;
-
-  function formatDiff(targetTime, elementId, fallbackText) {
-    if (!targetTime) {
-      document.getElementById(elementId).innerText = "Dates TBA";
-      return;
+    // 1. Theme Switcher (Light / Dark)
+    function setTheme(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      localStorage.setItem('union_theme', themeName);
+      
+      document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(`btn-${themeName}`);
+      if (activeBtn) activeBtn.classList.add('active');
     }
-    const diff = targetTime - now;
-    if (diff <= 0) {
-      document.getElementById(elementId).innerText = fallbackText;
-      return;
+
+    const savedTheme = localStorage.getItem('union_theme') || 'white';
+    setTheme(savedTheme);
+
+    // 2. Secret Rebel Mode Toggle
+    function toggleVibe() {
+      const currentVibe = document.documentElement.getAttribute('data-vibe');
+      const nextVibe = currentVibe === 'rebel' ? 'formal' : 'rebel';
+      document.documentElement.setAttribute('data-vibe', nextVibe);
+      localStorage.setItem('portal_vibe', nextVibe);
     }
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-    document.getElementById(elementId).innerText = `${days}d ${hours}h ${minutes}m`;
-  }
+    // Secret Hotkey: Ctrl + Shift + X
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'x') {
+        toggleVibe();
+      }
+    });
 
-  formatDiff(nextGirivalam, 'girivalam-countdown', 'In Progress Today');
-  formatDiff(nextExam, 'exam-countdown', 'Session Underway');
-}
+    if (localStorage.getItem('portal_vibe') === 'rebel') {
+      document.documentElement.setAttribute('data-vibe', 'rebel');
+    }
 
-updateCountdowns();
-setInterval(updateCountdowns, 60000); // Ticks every minute
+    // 3. Countdown Tickers Logic
+    const pournamiSchedule = [
+      "2026-09-26T18:00:00+05:30",
+      "2026-10-25T18:00:00+05:30",
+      "2026-11-24T18:00:00+05:30",
+      "2026-12-23T18:00:00+05:30"
+    ];
+
+    const examDate = new Date("2026-12-01T09:30:00+05:30").getTime();
+
+    function updateCountdowns() {
+      const now = new Date().getTime();
+
+      const upcomingPournamiStr = pournamiSchedule.find(d => new Date(d).getTime() > now);
+      const nextGirivalam = upcomingPournamiStr ? new Date(upcomingPournamiStr).getTime() : null;
+
+      function renderDiff(targetTime, elementId, fallback) {
+        if (!targetTime) {
+          document.getElementById(elementId).innerText = "Dates TBA";
+          return;
+        }
+        const diff = targetTime - now;
+        if (diff <= 0) {
+          document.getElementById(elementId).innerText = fallback;
+          return;
+        }
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById(elementId).innerText = `${d}d ${h}h ${m}m`;
+      }
+
+      renderDiff(nextGirivalam, 'girivalam-countdown', 'In Progress Today');
+      renderDiff(examDate, 'exam-countdown', 'Session Active');
+    }
+
+    updateCountdowns();
+    setInterval(updateCountdowns, 60000);
   </script>
 
   <!-- BATCH MODAL DATA SCRIPT -->
@@ -943,58 +1038,5 @@ setInterval(updateCountdowns, 60000); // Ticks every minute
       });
     }
   </script>
-  <script>
-  function toggleVibe() {
-    const currentVibe = document.documentElement.getAttribute('data-vibe');
-    const newVibe = currentVibe === 'rebel' ? 'formal' : 'rebel';
-    document.documentElement.setAttribute('data-vibe', newVibe);
-    localStorage.setItem('portal_vibe', newVibe);
-  }
-
-  // Secret Hotkey: Ctrl + Shift + X
-  document.addEventListener('keydown', (e) => {
-    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'x') {
-      toggleVibe();
-    }
-  });
-
-  // Remember preference across reloads
-  if (localStorage.getItem('portal_vibe') === 'rebel') {
-    document.documentElement.setAttribute('data-vibe', 'rebel');
-  }
-</script>
-  <!-- Put this right before </body> at the bottom of index.html -->
-  <script>
-    function toggleVibe() {
-      const current = document.documentElement.getAttribute('data-vibe');
-      const next = current === 'rebel' ? 'formal' : 'rebel';
-      
-      document.documentElement.setAttribute('data-vibe', next);
-      localStorage.setItem('portal_vibe', next);
-
-      // Update button label
-      const btn = document.querySelector('.secret-toggle-btn');
-      if (btn) {
-        btn.textContent = next === 'rebel' ? '🔒 Cloak' : '⚡ Uncloak';
-      }
-    }
-
-    // Secret hotkey: Ctrl + Shift + X
-    document.addEventListener('keydown', (e) => {
-      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'x') {
-        toggleVibe();
-      }
-    });
-
-    // Load saved mode on startup
-    if (localStorage.getItem('portal_vibe') === 'rebel') {
-      document.documentElement.setAttribute('data-vibe', 'rebel');
-      const btn = document.querySelector('.secret-toggle-btn');
-      if (btn) btn.textContent = '🔒 Cloak';
-    }
-  </script>
-
-</body>
-</html>
 </body>
 </html>
