@@ -7,124 +7,362 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;700;800&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #FBFBFA;
+    /* Clean Base Theme (Light Mode Default) */
+    :root, [data-theme="white"] {
+      --bg: #FDFDFD;
       --surface: #FFFFFF;
+      --card-bg: #FFFFFF;
+      --input-bg: #F8F9FA;
       --text: #181818;
       --muted: #737373;
       --border: #E5E5E3;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, sans-serif;
     }
-    [data-vibe="rebel"] {
-      --bg: #0F0E17 !important;
-      --surface: #1E1C2B !important;
-      --text: #FFFFFE !important;
-      --muted: #A7A9BE !important;
-      --border: #FF8906 !important;
-      --font-serif: 'Syne', sans-serif !important;
-      --font-sans: 'Plus Jakarta Sans', sans-serif !important;
+
+    /* Dark Mode */
+    [data-theme="dark"] {
+      --bg: #121212;
+      --surface: #1E1E1E;
+      --card-bg: #181818;
+      --input-bg: #141414;
+      --text: #EDEDED;
+      --muted: #9E9E9E;
+      --border: #2C2C2C;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ================= COMPLETE REBEL MODE OVERRIDES ================= */
+    [data-vibe="rebel"] {
+      --bg: #0d0e15 !important;
+      --surface: #171926 !important;
+      --card-bg: #1a1d2e !important;
+      --text: #f4f4f6 !important;
+      --muted: #94a1b2 !important;
+      --border: #ff5470 !important;
+      --accent-pink: #ff5470;
+      --accent-green: #00eb84;
+      --accent-yellow: #fde24f;
+      --input-bg: #11121c !important;
+      --font-serif: 'Syne', sans-serif !important;
+      --font-sans: 'Space Grotesk', sans-serif !important;
+    }
+
+    [data-vibe="rebel"] body {
+      background-color: var(--bg) !important;
+      background-image: radial-gradient(#24283b 1px, transparent 1px) !important;
+      background-size: 24px 24px !important;
+      color: var(--text) !important;
+      font-family: var(--font-sans) !important;
+    }
+
+    [data-vibe="rebel"] .brand {
+      color: var(--accent-yellow) !important;
+      font-family: 'Syne', sans-serif !important;
+      font-weight: 800 !important;
+      letter-spacing: -0.02em;
+    }
+    [data-vibe="rebel"] .brand::after {
+      content: " // UNCENSORED ⚡" !important;
+      color: var(--accent-pink) !important;
+      font-size: 0.8rem !important;
+      font-weight: 700 !important;
+    }
+
+    [data-vibe="rebel"] .card, 
+    [data-vibe="rebel"] .alert-box {
+      border: 2px solid var(--accent-pink) !important;
+      box-shadow: 4px 4px 0px var(--accent-pink) !important;
+      transform: rotate(-0.3deg);
+      border-radius: 4px !important;
+      background: var(--card-bg) !important;
+    }
+
+    [data-vibe="rebel"] .card:hover {
+      transform: translate(-2px, -2px) !important;
+      box-shadow: 6px 6px 0px var(--accent-green) !important;
+      border-color: var(--accent-green) !important;
+    }
+
+    [data-vibe="rebel"] h1, 
+    [data-vibe="rebel"] h2, 
+    [data-vibe="rebel"] h3 {
+      font-family: 'Syne', sans-serif !important;
+      font-weight: 800 !important;
+      color: #ffffff !important;
+    }
+
+    [data-vibe="rebel"] .section-header {
+      border-bottom: 2px dashed var(--accent-green) !important;
+    }
+    [data-vibe="rebel"] .section-header span {
+      color: var(--accent-yellow) !important;
+      font-family: 'Space Grotesk', monospace !important;
+      font-weight: 700;
+    }
+
+    /* Content Swapping Rules */
+    .rebel-content { display: none !important; }
+    .formal-content { display: block; }
+    [data-vibe="rebel"] .formal-content { display: none !important; }
+    [data-vibe="rebel"] .rebel-content { display: block !important; }
+
+    span.rebel-inline { display: none; }
+    [data-vibe="rebel"] span.rebel-inline { display: inline !important; }
+    [data-vibe="rebel"] span.formal-inline { display: none !important; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; padding: 2rem 5vw; }
     
-    header { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 3rem; }
+    header { border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 3.5rem; }
     nav { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 1rem; }
-    .brand { font-family: var(--font-serif); font-size: 1.75rem; text-decoration: none; color: var(--text); font-weight: 600; }
-    .nav-links a { margin-left: 1.25rem; text-decoration: none; color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
-    .nav-links a:hover { color: var(--text); }
+    .brand { 
+      font-family: var(--font-serif); 
+      font-size: 1.75rem; 
+      text-decoration: none; 
+      color: var(--text); 
+      font-weight: 600; 
+      letter-spacing: -0.01em; 
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .nav-right { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; margin-right: 1rem; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .theme-switch {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 2px;
+      gap: 2px;
+    }
+    .theme-btn {
+      background: none;
+      border: none;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .theme-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      font-weight: 600;
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
     .card { border: 1px solid var(--border); padding: 1.5rem; background: var(--surface); }
     .card h3 { font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 0.5rem; font-weight: 400; }
     .card p { color: var(--muted); font-size: 0.88rem; margin-bottom: 1rem; }
     
+    .alert-box {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.88rem;
+    }
+
     table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 1rem; }
     th { border-bottom: 1px solid var(--text); text-align: left; padding: 0.5rem 0; font-family: var(--font-serif); font-size: 1.1rem; }
     td { border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
 
-    footer { border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 5rem; color: var(--muted); font-size: 0.85rem; display: flex; justify-content: space-between; }
+    footer { border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 5rem; color: var(--muted); font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
   </style>
 </head>
 <body>
 
   <header>
     <nav>
-      <a href="index.html" class="brand">STUDENTS' UNION</a>
-      <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <!-- Click STUDENTS' UNION or press Ctrl+Shift+X to toggle Rebel Mode -->
+      <a href="javascript:void(0)" class="brand" onclick="toggleVibe()" title="STUDENTS' UNION">STUDENTS' UNION</a>
+      
+      <div class="nav-right">
         <div class="nav-links">
           <a href="index.html">Home</a>
           <a href="academics.html">Survival Manual</a>
-          <a href="transit.html" style="color: var(--text); font-weight: 600;">Transit Guide</a>
+          <a href="transit.html" class="active" style="color: var(--text); font-weight: 600;">Transit Guide</a>
           <a href="events.html">Events</a>
           <a href="blog.html">Dispatches</a>
         </div>
-        <button class="secret-toggle-btn" onclick="toggleVibe()">⚡ Uncloak</button>
+
+        <div class="theme-switch">
+          <button class="theme-btn active" onclick="setTheme('white')" id="btn-white">Light</button>
+          <button class="theme-btn" onclick="setTheme('dark')" id="btn-dark">Dark</button>
+        </div>
       </div>
     </nav>
   </header>
 
   <main>
-    <h1 style="font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; margin-bottom: 0.5rem;">Suburban Campus Transit Guide</h1>
-    <p style="color: var(--muted); margin-bottom: 3rem;">How to navigate to and from Arunai Medical College (Velu Nagar NH Bypass) to town centers, bus stands, and railway links.</p>
+    <h1 style="font-family: var(--font-serif); font-size: clamp(2.3rem, 5vw, 3.8rem); font-weight: 400; margin-bottom: 0.5rem;">
+      <span class="formal-inline">Suburban Campus Transit Guide</span>
+      <span class="rebel-inline">Bypass Transit & Commute Hacks 🚌</span>
+    </h1>
+    
+    <div class="formal-content">
+      <p style="color: var(--muted); margin-bottom: 2rem;">Navigating travel to and from Arunai Medical College (Velu Nagar NH Bypass) to town centers, bus stands, and inter-city connections.</p>
+    </div>
+    <div class="rebel-content">
+      <p style="color: #00eb84; font-weight: 500; margin-bottom: 2rem;">“Ooruku poga bus pidikuradhe periya assignment da.” Practical route knowledge, fare limits, and bargaining tips.</p>
+    </div>
+
+    <!-- Campus Safety & Vehicle Ban Notice -->
+    <div class="alert-box">
+      <div class="formal-content">
+        <strong style="display: block; margin-bottom: 0.25rem;">⚠️ Mandatory Campus Safety Policy:</strong>
+        <p style="color: var(--text); margin-bottom: 0;">Motorcycles and two-wheelers are strictly prohibited inside the campus to safeguard student safety. All students rely on public buses, authorized auto-rickshaws, and shared transit.</p>
+      </div>
+      <div class="rebel-content">
+        <strong style="color: #ff5470; display: block; margin-bottom: 0.25rem;">⚠️ Bike Entry Banned:</strong>
+        <p style="color: var(--text); margin-bottom: 0;">“College ulla bikes strictly allowed illa.” Safety-kaaga strict rule. Buses and autos dhaan ungalukku vazhi.</p>
+      </div>
+    </div>
 
     <div class="grid">
-      <!-- 1. Town to Campus Auto Norms -->
+      <!-- 1. Local Bus Stops & Landmarks -->
       <div class="card">
-        <h3>1. Auto Fares & Shared Stands</h3>
-        <p>Because the campus sits on the outer bypass, autos often quote inflated single-hire rates. Standard student norms:</p>
-        <table>
-          <thead>
-            <tr>
-              <th>Route</th>
-              <th>Norm (Shared)</th>
-              <th>Private Hire</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Campus Gate &harr; Old Bus Stand</td>
-              <td>₹20 – ₹30</td>
-              <td>₹120 – ₹150</td>
-            </tr>
-            <tr>
-              <td>Campus Gate &harr; Central Bus Stand</td>
-              <td>₹25 – ₹35</td>
-              <td>₹140 – ₹180</td>
-            </tr>
-            <tr>
-              <td>Campus &harr; Railway Station</td>
-              <td>—</td>
-              <td>₹150 – ₹200</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="formal-content">
+          <h3>1. Bus Stops & Boarding Points</h3>
+          <p>Navigating town buses near the campus boundary:</p>
+          <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8; color: var(--text);">
+            <li><strong>Towards City / Town Center:</strong> Board right outside the college gate, adjacent to the bamboo juice stand (near the engineering college).</li>
+            <li><strong>Towards Thirukovilur:</strong> Cross the bypass road safely to the opposite shelter directly facing the bamboo juice stand.</li>
+            <li><strong>Transit Reality:</strong> Relying on town buses can be demanding, but it remains the most economical daily commute.</li>
+          </ul>
+        </div>
+        <div class="rebel-content">
+          <h3>1. Bus Stand Landmarks</h3>
+          <p><strong>“Bamboo Juice Stand dhaan landmark!”</strong></p>
+          <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8; color: var(--text);">
+            <li><strong>Town Poga:</strong> College gate pakkathula irukra Bamboo juice stand kitta nillunga (Engineering college stop).</li>
+            <li><strong>Thirukovilur Poga:</strong> Road cross panni opposite side juice stand shelter-la nikkavum.</li>
+            <li>Bus-la porathu konjam bore dhaan, aana vere vazhi illa!</li>
+          </ul>
+        </div>
       </div>
 
-      <!-- 2. City Bus Routes -->
+      <!-- 2. Auto-Rickshaws & Rapido Logistics -->
       <div class="card">
-        <h3>2. Local Town Bus Stops</h3>
-        <p>Frequent government town buses run past the Velu Nagar bypass stop during daylight hours:</p>
-        <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8;">
-          <li><strong>Bypass Stage Buses:</strong> Board buses heading towards Chengam / Bangalore highway or Villupuram link.</li>
-          <li><strong>Last Bus Advisory:</strong> Local town frequencies drop sharply after 08:30 PM. Always have a trusted auto driver number saved if returning from town near curfew hours[cite: 1].</li>
-        </ul>
+        <div class="formal-content">
+          <h3>2. Auto Fares, Rapido & Safety</h3>
+          <p style="color: #b91c1c; font-weight: 500; font-size: 0.85rem; margin-bottom: 0.5rem;">
+            ⚠️ Disclaimer: Prioritize personal safety. Do not travel alone in unknown or unmarked auto-rickshaws.
+          </p>
+          <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8; color: var(--text);">
+            <li><strong>Save Contacts:</strong> Get and save 2 to 3 phone numbers of reliable, friendly auto drivers for emergency transit.</li>
+            <li><strong>Fare Norm:</strong> Auto fare from College Gate to the New Bus Stand is ₹200 – ₹250 max. Drivers may quote higher rates.</li>
+            <li><strong>Bargaining & Group Travel:</strong> Unless approaching evening curfew, always negotiate the fare down. Travel in groups with batchmates to share the cost.</li>
+            <li><strong>Rapido:</strong> Rapidos are available around town but may surcharge. Always verify driver identity before boarding.</li>
+          </ul>
+        </div>
+        <div class="rebel-content">
+          <h3>2. Auto & Rapido Tactics 🛺</h3>
+          <p style="color: #ff5470; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.5rem;">
+            ⚠️ “Safety First: Unknown auto-la thaniya pogatheenga!”
+          </p>
+          <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8; color: var(--text);">
+            <li>Nalla therinja 2-3 auto anna numbers phone-la save panni vachukonga.</li>
+            <li><strong>Fare Cap:</strong> College-la irundhu New Bus Stand-ku ₹200 – ₹250 dhaan max. Extra ketta nalla bargain pannunga.</li>
+            <li>Curfew time (8 PM / 9 PM) kitta illana kanda padi kaasu kudukatheenga[cite: 1]! Classmates or seniors kooda share pannunga.</li>
+            <li>Rapido option irukku, aana extra charge poduvaanga — ride confirm pandradhukku munnadi check pannunga.</li>
+          </ul>
+        </div>
       </div>
 
-      <!-- 3. Inter-City Connections -->
+      <!-- 3. Coming to College from Bus Stand -->
       <div class="card">
-        <h3>3. Going Home (Weekend Transit)</h3>
-        <p>Connecting to major hubs across Tamil Nadu from Central Bus Stand:</p>
-        <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8;">
-          <li><strong>Chennai (Kilambakkam KCBT / CMBT):</strong> Direct SETC/TNSTC buses leave every 15–20 minutes via Tindivanam.</li>
-          <li><strong>Vellore / Katpadi Jn:</strong> Regular direct buses; convenient for north-bound train connections.</li>
-          <li><strong>Salem / Coimbatore / Trichy:</strong> Regular departures via Harur/Villupuram routes.</li>
-        </ul>
+        <div class="formal-content">
+          <h3>3. Boarding from Bus Stand to Campus</h3>
+          <p>Navigating the correct bus bay from the town bus terminus:</p>
+          <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8; color: var(--text);">
+            <li><strong>Route Query:</strong> Ask for <strong>Veraiyur route buses</strong> or <strong>Thirukovilur buses operating via Veraiyur</strong>.</li>
+            <li><strong>Conductor Confirmation:</strong> Always verify verbally with the conductor that the bus halts at Arunai Medical College before boarding.</li>
+            <li><strong>Trichy Bus Advantage:</strong> Direct Trichy-bound buses will drop passengers right in front of the college gate if requested to the driver in advance.</li>
+          </ul>
+        </div>
+        <div class="rebel-content">
+          <h3>3. Bus Stand to College Route</h3>
+          <p><strong>“Kondaiyatha route-la eridaatheenga!”</strong></p>
+          <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8; color: var(--text);">
+            <li>Bus stand-la <strong>Veraiyur bus</strong> or <strong>Veraiyur valiya pora Thirukovilur bus</strong> nu kettukonga.</li>
+            <li>Eradhukku munnadi conductor kitta <em>“Arunai Medical College poguma?”</em> nu confirm pannitu yerunga.</li>
+            <li><strong>Trichy Bus Hack:</strong> Trichy buses kitta driver kitta sonna college vaasal-laye irakkividuvaanga!</li>
+          </ul>
+        </div>
       </div>
+
+      <!-- 4. Going Home (Weekend Inter-City Transit) -->
+      <div class="card">
+        <div class="formal-content">
+          <h3>4. Going Home & New Bus Stand</h3>
+          <p>Inter-city operations are concentrated at the <strong>New Bus Stand on the TCM Gingee Highway</strong>:</p>
+          <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8; color: var(--text);">
+            <li><strong>Schedule Variance:</strong> Bus frequencies fluctuate significantly. Consult the stand timekeeper to confirm timings rather than leaving impulsively.</li>
+            <li><strong>Weekend Crowds:</strong> While Trichy buses drop you off easily at campus on the return, leaving from the terminus on weekends means boarding packed buses. Reach the stand early.</li>
+            <li><strong>Chennai / Outstation Links:</strong> Direct SETC/TNSTC services operate to Chennai (Kilambakkam KCBT/CMBT), Vellore, Salem, and Villupuram[cite: 1].</li>
+          </ul>
+        </div>
+        <div class="rebel-content">
+          <h3>4. Going Home (New Bus Stand) 🎒</h3>
+          <p><strong>“TCM Gingee Highway New Bus Stand Scene”</strong></p>
+          <ul style="font-size: 0.88rem; padding-left: 1.2rem; line-height: 1.8; color: var(--text);">
+            <li>Timekeeper kitta direct-aa poyi unga ooru bus timing kettukonga. Frequency change aagite irukkum, sudden-aa kilambi maatikadheenga.</li>
+            <li>Trichy bus college kitta irakkidum, aana oorku porappa New Bus Stand-la full rush-aa irukkum. Seat pidikka seekram ponga!</li>
+            <li>Chennai (Kilambakkam), Vellore, Salem buses regular-aa irukku[cite: 1].</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Standard Student Fare Reference Table -->
+    <div class="card" style="margin-top: 2rem;">
+      <h3 style="margin-bottom: 0.5rem;">Estimated Student Fare Reference</h3>
+      <p style="margin-bottom: 1rem;">Standard baseline rates under normal operating daylight hours:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Route</th>
+            <th>Town Bus</th>
+            <th>Shared Auto Norm</th>
+            <th>Private Auto Hire</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Campus Gate &harr; Bamboo Juice Stand Stop</td>
+            <td>₹7 – ₹10</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Campus Gate &harr; New Bus Stand (Gingee Hwy)</td>
+            <td>₹10 – ₹15</td>
+            <td>₹35 – ₹50</td>
+            <td>₹200 – ₹250 (Max)</td>
+          </tr>
+          <tr>
+            <td>Campus Gate &harr; Old Bus Stand / Town</td>
+            <td>₹10 – ₹12</td>
+            <td>₹25 – ₹35</td>
+            <td>₹130 – ₹160</td>
+          </tr>
+          <tr>
+            <td>Campus &harr; Tiruvannamalai Railway Station</td>
+            <td>₹12 – ₹15</td>
+            <td>—</td>
+            <td>₹180 – ₹220</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </main>
 
@@ -134,12 +372,34 @@
   </footer>
 
   <script>
-    function toggleVibe() {
-      const current = document.documentElement.getAttribute('data-vibe');
-      const next = current === 'rebel' ? 'formal' : 'rebel';
-      document.documentElement.setAttribute('data-vibe', next);
-      localStorage.setItem('portal_vibe', next);
+    // 1. Theme Switcher (Light / Dark)
+    function setTheme(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      localStorage.setItem('union_theme', themeName);
+      
+      document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById(`btn-${themeName}`);
+      if (activeBtn) activeBtn.classList.add('active');
     }
+
+    const savedTheme = localStorage.getItem('union_theme') || 'white';
+    setTheme(savedTheme);
+
+    // 2. Secret Rebel Mode Toggle
+    function toggleVibe() {
+      const currentVibe = document.documentElement.getAttribute('data-vibe');
+      const nextVibe = currentVibe === 'rebel' ? 'formal' : 'rebel';
+      document.documentElement.setAttribute('data-vibe', nextVibe);
+      localStorage.setItem('portal_vibe', nextVibe);
+    }
+
+    // Secret Hotkey: Ctrl + Shift + X
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'x') {
+        toggleVibe();
+      }
+    });
+
     if (localStorage.getItem('portal_vibe') === 'rebel') {
       document.documentElement.setAttribute('data-vibe', 'rebel');
     }
