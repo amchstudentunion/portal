@@ -14,40 +14,31 @@
 
   <style>
     /* Theme Definitions */
-    :root, [data-theme="paper"] {
-      --bg: #FBFBFA;
-      --surface: #FFFFFF;
-      --text: #181818;
-      --muted: #737373;
-      --border: #E5E5E3;
-      --accent: #2E2E2E;
-      --card-bg: #FFFFFF;
-      --input-bg: #FBFBFA;
-      --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, sans-serif;
-    }
+   /* Clean Base Theme (Light Mode Default) */
+:root, [data-theme="white"] {
+  --bg: #FDFDFD;
+  --surface: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --input-bg: #F8F9FA;
+  --text: #181818;
+  --muted: #737373;
+  --border: #E5E5E3;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+}
 
-    [data-theme="white"] {
-      --bg: #FFFFFF;
-      --surface: #F8F9FA;
-      --text: #111827;
-      --muted: #6B7280;
-      --border: #E5E7EB;
-      --accent: #1F2937;
-      --card-bg: #FFFFFF;
-      --input-bg: #F9FAFB;
-    }
-
-    [data-theme="dark"] {
-      --bg: #121212;
-      --surface: #1E1E1E;
-      --text: #EDEDED;
-      --muted: #9E9E9E;
-      --border: #2C2C2C;
-      --accent: #E5E5E5;
-      --card-bg: #181818;
-      --input-bg: #141414;
-    }
+/* Dark Mode */
+[data-theme="dark"] {
+  --bg: #121212;
+  --surface: #1E1E1E;
+  --card-bg: #181818;
+  --input-bg: #141414;
+  --text: #EDEDED;
+  --muted: #9E9E9E;
+  --border: #2C2C2C;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+}
 
     * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
     body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; padding: 2rem 5vw; }
@@ -648,18 +639,19 @@ span.rebel-inline {
   <!-- THEME SWITCHER & COUNTDOWN SCRIPT -->
   <script>
     // 1. Theme Switcher Logic
-    function setTheme(themeName) {
-      document.documentElement.setAttribute('data-theme', themeName);
-      localStorage.setItem('union_theme', themeName);
-      
-      document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
-      const activeBtn = document.getElementById(`btn-${themeName}`);
-      if (activeBtn) activeBtn.classList.add('active');
-    }
+    // Theme Switcher Logic (Light & Dark)
+function setTheme(themeName) {
+  document.documentElement.setAttribute('data-theme', themeName);
+  localStorage.setItem('union_theme', themeName);
+  
+  document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.getElementById(`btn-${themeName}`);
+  if (activeBtn) activeBtn.classList.add('active');
+}
 
-    // Initialize Theme from Local Storage (Default to 'paper')
-    const savedTheme = localStorage.getItem('union_theme') || 'paper';
-    setTheme(savedTheme);
+// Initialize Theme (Defaults to Light/White)
+const savedTheme = localStorage.getItem('union_theme') || 'white';
+setTheme(savedTheme);
 
     // Schedule of Pournami / Girivalam Dates (IST)
 const pournamiSchedule = [
